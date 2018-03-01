@@ -105,18 +105,18 @@ function getDbData() {
   const villains: any[] = [
     {
       id: 21,
-      name: 'Dr. Evil',
-      description: 'One million dollars!'
+      name: 'John',
+      description: 'Slayer of JavaScript'
     },
     {
       id: 22,
-      name: 'Agent Smith',
-      description: 'Human beings are a disease.'
+      name: 'Simona',
+      description: 'Wielder of the Service Worker'
     },
     {
       id: 23,
-      name: 'Natasha Fatale',
-      description: 'You can say that again, dahling.'
+      name: 'Asim',
+      description: 'The Hacker of Node'
     },
     {
       id: 24,
