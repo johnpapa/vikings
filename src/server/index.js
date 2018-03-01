@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
-if (dotenv.error) {
+if (!process.env.NODE_ENV) {
+// if (dotenv.error) {
   console.error(
     'ENV variables are missing.',
     'Verify that you have set them directly or in a .env file.'
