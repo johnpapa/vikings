@@ -15,7 +15,8 @@
     "docker-up-debug": "docker-compose -f docker-compose.debug.yml up -d --build",
     "docker-down": "docker-compose down",
     "dev-proxy": "concurrently \"npm run debug\" \"ng serve --proxy-config proxy.conf.json --open\"",
-    "start": "PUBLICWEB=./dist/publicweb node -r dotenv/config src/server/index.js",
+    "start": "node index.js",
+    "local": "PUBLICWEB=./dist/publicweb node -r dotenv/config src/server/index.js",
     "debug": "PUBLICWEB=./dist/publicweb node -r dotenv/config --inspect src/server/index.js"
   },
   "private": true,
@@ -35,6 +36,7 @@
     "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
     "dotenv": "^5.0.1",
+    "express": "^4.16.2",
     "hammerjs": "^2.0.8",
     "mongoose": "^5.0.7",
     "rxjs": "^5.5.6",
