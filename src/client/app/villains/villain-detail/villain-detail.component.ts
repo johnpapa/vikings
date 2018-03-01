@@ -30,7 +30,7 @@ export class VillainDetailComponent implements OnChanges {
   form = this.fb.group({
     id: [],
     name: ['', Validators.required],
-    saying: ['']
+    description: ['']
   });
 
   constructor(private fb: FormBuilder) {}

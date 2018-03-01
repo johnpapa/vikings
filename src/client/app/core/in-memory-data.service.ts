@@ -72,23 +72,33 @@ function getDbData() {
   const heroes: any[] = [
     {
       id: 11,
-      name: 'Maxwell Smart',
-      saying: 'Missed it by that much.'
+      name: 'Ragnar Lothbrok',
+      description: 'aka Ragnar Sigurdsson'
     },
     {
       id: 12,
-      name: 'Bullwinkle J. Moose',
-      saying: 'Watch me pull a rabbit out of a hat.'
+      name: 'Ivar the Boneless',
+      description: 'commander of the Great Heathen Army'
     },
     {
       id: 13,
-      name: 'Muhammad Ali',
-      saying: 'Float like a butterfly, sting like a bee.'
+      name: 'Bjorn Ironside',
+      description: 'king of 9th century Sweden'
     },
     {
       id: 14,
-      name: 'Eleanor Roosevelt',
-      saying: 'No one can make you feel inferior without your consent.'
+      name: 'Lagertha the Shieldmaiden',
+      description: 'aka Hlaðgerðr'
+    },
+    {
+      id: 14,
+      name: 'Aslaug',
+      description: 'warrior queen'
+    },
+    {
+      id: 14,
+      name: 'Thora Town-hart',
+      description: 'daughter of Earl Herrauðr of Götaland'
     }
   ];
 
@@ -96,32 +106,32 @@ function getDbData() {
     {
       id: 21,
       name: 'Dr. Evil',
-      saying: 'One million dollars!'
+      description: 'One million dollars!'
     },
     {
       id: 22,
       name: 'Agent Smith',
-      saying: 'Human beings are a disease.'
+      description: 'Human beings are a disease.'
     },
     {
       id: 23,
       name: 'Natasha Fatale',
-      saying: 'You can say that again, dahling.'
+      description: 'You can say that again, dahling.'
     },
     {
       id: 24,
       name: 'Goldfinger',
-      saying: 'No, I expect you to die!'
+      description: 'No, I expect you to die!'
     },
     {
       id: 25,
       name: 'West Witch',
-      saying: 'I\'ll get you, my pretty, and your little dog too!'
+      description: 'I\'ll get you, my pretty, and your little dog too!'
     },
     {
       id: 26,
       name: 'Tony Montana',
-      saying: 'Say hello to my little friend.'
+      description: 'Say hello to my little friend.'
     },
   ];
 

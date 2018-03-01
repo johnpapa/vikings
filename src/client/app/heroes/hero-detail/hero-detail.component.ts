@@ -33,7 +33,7 @@ export class HeroDetailComponent implements OnChanges {
       this.editingHero = { ...this.hero };
       this.addMode = false;
     } else {
-      this.editingHero = { id: undefined, name: '', saying: '' };
+      this.editingHero = { id: undefined, name: '', description: '' };
       this.addMode = true;
     }
   }

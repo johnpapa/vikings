@@ -9,24 +9,13 @@ if (!process.env.NODE_ENV) {
 }
 
 const express = require('express');
-const security = require('./security');
-const bodyParser = require('body-parser');
-const routes = require('./routes');
-
-const publicweb = process.env.PUBLICWEB;
-const port = process.env.SERVER_PORT;
-
 const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-app.use(security());
-
+const port = process.env.PORT || port;
+const publicweb = process.env.PUBLICWEB || './dist';
 app.use(express.static(publicweb));
 console.log(`serving ${publicweb}`);
-app.use('/api', routes);
 app.get('*', (req, res) => {
   res.sendFile(`index.html`, { root: publicweb });
 });
+app.listen(port, () => console.log(`listening on http://localhost:${port}`));
 
-app.listen(port, () => console.log(`API running on http://localhost:${port}`));
