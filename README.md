@@ -18,7 +18,9 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 
 ## Requirements
 
-1. Install the Angular CLI
+* Install the Angular CLI
+
+    Only required when running local, *without docker*.
 
     ```bash
     npm install -g @angular/cli
