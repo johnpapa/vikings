@@ -117,22 +117,7 @@ function getDbData() {
       id: 23,
       name: 'Asim',
       description: 'The Hacker of Node'
-    },
-    {
-      id: 24,
-      name: 'Goldfinger',
-      description: 'No, I expect you to die!'
-    },
-    {
-      id: 25,
-      name: 'West Witch',
-      description: 'I\'ll get you, my pretty, and your little dog too!'
-    },
-    {
-      id: 26,
-      name: 'Tony Montana',
-      description: 'Say hello to my little friend.'
-    },
+    }
   ];
 
   return { heroes, villains } as Db;
