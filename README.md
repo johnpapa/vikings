@@ -26,15 +26,13 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 
 1. Install the [Azure CLI](https://aka.ms/jp-az)
 
-1. Create a [CosmosDB instance](https://aka.ms/jp-cosmos-node)
-
 ## Getting Started
 
 1. Clone this repository
 
    ```bash
    git clone https://github.com/johnpapa/vikings.git
-   cd angular-cosmosdb
+   cd vikings
    ```
 
 1. Install the npm packages
@@ -43,7 +41,7 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
    npm i
    ```
 
-1. Configure Cosmos DB server settings
+1. Configure environment settings
 
    Create a file with the following name and location `.env` and copy the contents from
    `.env.example` into it. Replace the values with your specific configuration. Don't worry, this
@@ -53,14 +51,8 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 
    ```javascript
     NODE_ENV=development
-
     PORT=3001
     PUBLICWEB=./publicweb
-
-    COSMOSDB_ACCOUNT=your_cosmos_account
-    COSMOSDB_DB=your_cosmos_db
-    COSMOSDB_KEY=your_cosmos_key
-    COSMOSDB_PORT=10255
    ```
 
 ## Running the app locally
@@ -101,9 +93,26 @@ open http://localhost:3001
 
 Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
+## Cosmos DB
+
+This Vikings demo uses an in memory data store by default. If you would like to use Azure's Cosmos DB, a mongo DB API, follow these steps:
+
+1. Create a [CosmosDB instance](https://aka.ms/jp-cosmos-node)
+
+1. Configure Cosmos DB server settings
+
+   In the `.env` and append the `COSMOSDB` specific setting shown below, but for your specific configuration.
+
+   ```javascript
+    COSMOSDB_ACCOUNT=your_cosmos_account
+    COSMOSDB_DB=your_cosmos_db
+    COSMOSDB_KEY=your_cosmos_key
+    COSMOSDB_PORT=10255
+   ```
+
 ## Problems or Suggestions
 
-[Open an issue here](https://github.com/johnpapa/angular-cosmos/issues)
+[Open an issue here](https://github.com/johnpapa/vikings/issues)
 
 ## Notes
 
