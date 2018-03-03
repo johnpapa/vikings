@@ -15,7 +15,7 @@ const mongoUri = `mongodb://${process.env.COSMOSDB_ACCOUNT}:${key}@${
 // const mongoUri = `mongodb://localhost:27017/heroes-db`;
 
 function connect() {
-  if (process.env.COSMOSDB_DB) {
+  if (process.env.USE_COSMOSDB === 'yes') {
     mongoose.set('debug', true);
     return mongoose.connect(mongoUri);
   }
