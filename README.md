@@ -10,11 +10,11 @@ Angular, Node, Docker, Azure!
 
 Here are all of the slides/code from my presentation at [ngVikings event](https://twitter.com/ngvikingsconf) this week!
 
-* Slides: http://slides.com/johnpapa/vikings2018
-* Code: https://github.com/johnpapa/vikings
-* Angular extensions https://aka.ms/ng-essentials
-* Node extensions: https://aka.ms/vsc-node
-* Free Azure Trial - https://aka.ms/jp-free
+* Slides: <http://slides.com/johnpapa/vikings2018>
+* Code: <https://github.com/johnpapa/vikings>
+* Angular extensions: <https://aka.ms/ng-essentials>
+* Node extensions: <https://aka.ms/vsc-node>
+* Free Azure Trial: <https://aka.ms/jp-free>
 
 ## Requirements
 
@@ -37,7 +37,7 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 1. Install the npm packages
 
     ```bash
-    npm i
+    npm install
     ```
 
 1. Configure environment settings
@@ -77,7 +77,7 @@ Create the Docker image that you can `docker push` to a registry. This command u
 
 1. CMD+SHIFT+P `docker: compose up`
 1. Select `docker-compose.debug.yml`
-1. Browse to http://localhost:3001
+1. Browse to <http://localhost:3001>
 
 > Do you prefer terminal commands? You can run the docker commands from the terminal
 >  ```bash
@@ -93,7 +93,7 @@ This uses your `.env` settings and opens port `9229` for debugging.
 
 1. CMD+SHIFT+P `docker: compose up`
 1. Select `docker-compose.debug.yml`
-1. Browse to http://localhost:3001
+1. Browse to <http://localhost:3001>
 
 Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
@@ -109,7 +109,7 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
 1. Azure account
 
-    Free Azure Trial - https://aka.ms/jp-free
+    Free Azure Trial - <https://aka.ms/jp-free>
 
 1. Install the Azure CLI
 
@@ -117,7 +117,7 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
 1. Azure/Node/Docker extensions for VS Code
 
-    Extensions: https://aka.ms/vsc-node
+    Extensions: <https://aka.ms/vsc-node>
 
 ### Deploy Docker Image to Azure
 
