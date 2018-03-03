@@ -20,40 +20,38 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 
 1. Install the Angular CLI
 
-   ```bash
-   npm install -g @angular/cli
-   ```
-
-1. Install the [Azure CLI](https://aka.ms/jp-az)
+    ```bash
+    npm install -g @angular/cli
+    ```
 
 ## Getting Started
 
 1. Clone this repository
 
-   ```bash
-   git clone https://github.com/johnpapa/vikings.git
-   cd vikings
-   ```
+    ```bash
+    git clone https://github.com/johnpapa/vikings.git
+    cd vikings
+    ```
 
 1. Install the npm packages
 
-   ```bash
-   npm i
-   ```
+    ```bash
+    npm i
+    ```
 
 1. Configure environment settings
 
-   Create a file with the following name and location `.env` and copy the contents from
-   `.env.example` into it. Replace the values with your specific configuration. Don't worry, this
-   file is in the `.gitignore` so it won't get pushed to github.
+    Create a file with the following name and location `.env` and copy the contents from
+    `.env.example` into it. Replace the values with your specific configuration. Don't worry, this
+    file is in the `.gitignore` so it won't get pushed to github.
 
-   Take care not to include extra spaces or quotes. These values are taken verbatum.
+    Take care not to include extra spaces or quotes. These values are taken verbatum.
 
-   ```javascript
+    ```javascript
     NODE_ENV=development
     PORT=3001
     PUBLICWEB=./publicweb
-   ```
+    ```
 
 ## Running the app locally
 
@@ -101,14 +99,15 @@ This Vikings demo uses an in memory data store by default. If you would like to 
 
 1. Configure Cosmos DB server settings
 
-   In the `.env` and append the `COSMOSDB` specific setting shown below, but for your specific configuration.
+    In the `.env` and append the `COSMOSDB` specific setting shown below, but for your specific configuration.
 
-   ```javascript
+    ```javascript
+    USE_COSMOSDB=yes
     COSMOSDB_ACCOUNT=your_cosmos_account
     COSMOSDB_DB=your_cosmos_db
     COSMOSDB_KEY=your_cosmos_key
     COSMOSDB_PORT=10255
-   ```
+    ```
 
 ## Problems or Suggestions
 
