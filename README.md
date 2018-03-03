@@ -23,7 +23,6 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
     ```bash
     npm install -g @angular/cli
     ```
-
 ## Getting Started
 
 1. Clone this repository
@@ -70,13 +69,19 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 
 ### Docker Compose
 
-Create the Docker image that you can `docker push` to a registry. This commands uses `docker-compose` to build the image and run the container.
+Create the Docker image that you can `docker push` to a registry. This command uses `docker-compose` to build the image and run the container.
 
 > This image expects environment variables to be set in whichever cloud provider you push to.
 
-```bash
-npm run docker-up
-```
+1. CMD+SHIFT+P `docker: compose up`
+1. Select `docker-compose.debug.yml`
+1. Browse to http://localhost:3001
+
+> Do you prefer terminal commands? You can run the docker commands from the terminal
+>  ```bash
+>  npm run docker-up
+>  open http://localhost:3001
+>  ```
 
 ### Docker Compose with Debugging
 
@@ -84,14 +89,56 @@ Create the Docker image and run it locally. This commands uses `docker-compose` 
 
 This uses your `.env` settings and opens port `9229` for debugging.
 
-```bash
-npm run docker-debug
-open http://localhost:3001
-```
+1. CMD+SHIFT+P `docker: compose up`
+1. Select `docker-compose.debug.yml`
+1. Browse to http://localhost:3001
 
 Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
-## Cosmos DB
+> Do you prefer terminal commands? You can run the docker commands from the terminal
+>  ```bash
+>  npm run docker-debug
+>  open http://localhost:3001
+>  ```
+
+## Deploy to Azure
+
+### Deploy to Azure Requirements
+
+1. Azure account
+
+    Free Azure Trial - https://aka.ms/jp-free
+
+1. Install the Azure CLI
+
+    link
+
+1. Azure/Node/Docker extensions for VS Code
+
+    Extensions: https://aka.ms/vsc-node
+
+### Deploy Docker Image to Azure
+
+1. CMD+SHIFT+P `docker: compose up`
+1. Select `docker-compose.yml`
+1. Go to the Docker extension in the sidebar and expand `Images`
+1. Right click the image and select `tag`
+1. Prefix the tag with your container registry name
+  e.g Azure container registry `papacr.azurecr.io/vikings:latest`
+1. Right click the image and select `push`
+1. Expand `Registries / Azure` in the Docker extension in the sidebar
+1. Right click the image you pushed and select `deploy to azure app service`
+1. Follow the instructions when prompted to choose your server
+
+### Notes
+
+1. Azure Container Registry Login command may be needed
+
+    ```bash
+    az acr login --name your-azure-container-registry-name
+    ```
+
+## Cosmos DB (Optional)
 
 This Vikings demo uses an in memory data store by default. If you would like to use Azure's Cosmos DB, a mongo DB API, follow these steps:
 
@@ -112,11 +159,3 @@ This Vikings demo uses an in memory data store by default. If you would like to 
 ## Problems or Suggestions
 
 [Open an issue here](https://github.com/johnpapa/vikings/issues)
-
-## Notes
-
-Azure Continer Registry Login command is needed if we push to it.
-
-```bash
-az acr login --name your-azure-container-registry-name
-```
