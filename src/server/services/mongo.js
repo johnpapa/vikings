@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 // Cosmos DB Connection String
-// eslint-disable-next-line max-len
 // &replicaSet=globaldb`;
 const key = encodeURIComponent(process.env.COSMOSDB_KEY);
 const mongoUri = `mongodb://${process.env.COSMOSDB_ACCOUNT}:${key}@${
