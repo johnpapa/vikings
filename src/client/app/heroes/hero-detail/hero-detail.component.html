@@ -12,7 +12,7 @@
         </div>
         <div>
           <mat-form-field>
-            <input matInput [(ngModel)]="editingHero.name" placeholder="name" #name>
+            <input matInput [(ngModel)]="editingHero.name" placeholder="name" #name (keyup.enter)="saveHero()">
           </mat-form-field>
         </div>
         <div>
