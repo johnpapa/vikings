@@ -1,0 +1,12 @@
+
+db.heroes.find()
+
+// db.heroes.findOneAndUpdate(
+//     { id: 5 },
+//     { $set: {id: 5, name: 'Aslaug', description: 'Warrior queen'}} },
+//     { upsert: true, new: true }
+// )
+
+db.heroes.count()
+
+// db.heroes.findOneAndDelete({id: 7})
