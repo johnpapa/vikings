@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 if (!process.env.NODE_ENV) {
-// if (dotenv.error) {
+  // if (dotenv.error) {
   console.error(
     'ENV variables are missing.',
     'Verify that you have set them directly or in a .env file.'
@@ -10,7 +10,7 @@ if (!process.env.NODE_ENV) {
 
 const express = require('express');
 const app = express();
-const port = process.env.PORT || port;
+const port = process.env.PORT || 3001;
 const publicweb = process.env.PUBLICWEB || './dist';
 const bodyParser = require('body-parser');
 const routes = require('./routes');
