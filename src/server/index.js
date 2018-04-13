@@ -11,7 +11,7 @@ if (!process.env.NODE_ENV) {
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3001;
-const publicweb = process.env.PUBLICWEB || './dist';
+const publicweb = process.env.PUBLICWEB || './publicweb';
 const bodyParser = require('body-parser');
 const routes = require('./routes');
 app.use(bodyParser.json());
@@ -24,4 +24,3 @@ app.get('*', (req, res) => {
   res.sendFile(`index.html`, { root: publicweb });
 });
 app.listen(port, () => console.log(`listening on http://localhost:${port}`));
-
