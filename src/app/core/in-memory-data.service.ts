@@ -91,12 +91,12 @@ function getDbData() {
       description: 'aka Hlaðgerðr'
     },
     {
-      id: 14,
+      id: 15,
       name: 'Aslaug',
       description: 'warrior queen'
     },
     {
-      id: 14,
+      id: 16,
       name: 'Thora Town-hart',
       description: 'daughter of Earl Herrauðr of Götaland'
     }

@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class ToolbarComponent {
   labTitle = 'Vikings';
-  labState = 'to the Cloud!';
+  labState = 'Welcome to //Build!';
 }

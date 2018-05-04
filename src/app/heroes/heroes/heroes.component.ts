@@ -33,7 +33,9 @@ export class HeroesComponent implements OnInit {
     this.heroService
       .deleteHero(hero)
       .pipe(finalize(() => (this.loading = false)))
-      .subscribe(() => (this.heroes = this.heroes.filter(h => h.id !== hero.id)));
+      .subscribe(
+        () => (this.heroes = this.heroes.filter(h => h.id !== hero.id))
+      );
   }
 
   enableAddMode() {
@@ -60,7 +62,10 @@ export class HeroesComponent implements OnInit {
     this.heroService
       .updateHero(hero)
       .pipe(finalize(() => (this.loading = false)))
-      .subscribe(() => (this.heroes = this.heroes.map(h => (h.id === hero.id ? hero : h))));
+      .subscribe(
+        () =>
+          (this.heroes = this.heroes.map(h => (h.id === hero.id ? hero : h)))
+      );
   }
 
   add(hero: Hero) {
