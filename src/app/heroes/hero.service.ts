@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 import { Hero, ToastService } from '../core';
 
@@ -20,11 +20,12 @@ export class HeroService {
   }
 
   getHeroes() {
+    const url = `${api}/heroes`;
+    const msg = 'Heroes retrieved successfully!';
     return this.http
-      .get<Array<Hero>>(`${api}/heroes`)
+      .get<Hero[]>(url)
       .pipe(
-        map(heroes => heroes),
-        tap(() => this.toastService.openSnackBar('Heroes retrieved successfully!', 'GET')),
+        tap(() => this.toastService.openSnackBar(msg, 'GET')),
         catchError(this.handleError)
       );
   }
@@ -37,18 +38,30 @@ export class HeroService {
   deleteHero(hero: Hero) {
     return this.http
       .delete(`${api}/hero/${hero.id}`)
-      .pipe(tap(() => this.toastService.openSnackBar(`Hero ${hero.name} deleted`, 'DELETE')));
+      .pipe(
+        tap(() =>
+          this.toastService.openSnackBar(`Hero ${hero.name} deleted`, 'DELETE')
+        )
+      );
   }
 
   addHero(hero: Hero) {
     return this.http
       .post<Hero>(`${api}/hero/`, hero)
-      .pipe(tap(() => this.toastService.openSnackBar(`Hero ${hero.name} added`, 'POST')));
+      .pipe(
+        tap(() =>
+          this.toastService.openSnackBar(`Hero ${hero.name} added`, 'POST')
+        )
+      );
   }
 
   updateHero(hero: Hero) {
     return this.http
       .put<Hero>(`${api}/hero/${hero.id}`, hero)
-      .pipe(tap(() => this.toastService.openSnackBar(`Hero ${hero.name} updated`, 'PUT')));
+      .pipe(
+        tap(() =>
+          this.toastService.openSnackBar(`Hero ${hero.name} updated`, 'PUT')
+        )
+      );
   }
 }
