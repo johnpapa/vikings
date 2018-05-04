@@ -10,14 +10,16 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gen-stats": "ng build --prod --stats-json",
-    "view-stats": "webpack-bundle-analyzer dist/publicweb/stats.json",
+    "view-stats": "webpack-bundle-analyzer dist/stats.json",
     "docker-up": "docker-compose up -d --build",
-    "docker-up-debug": "docker-compose -f docker-compose.debug.yml up -d --build",
+    "docker-up-debug":
+      "docker-compose -f docker-compose.debug.yml up -d --build",
     "docker-down": "docker-compose down",
-    "dev-proxy": "concurrently \"npm run debug\" \"ng serve --proxy-config proxy.conf.json --open\"",
+    "dev-proxy":
+      "concurrently \"npm run debug\" \"ng serve --proxy-config proxy.conf.json --open\"",
     "start": "node server.js",
-    "local": "PUBLICWEB=./dist/publicweb node -r dotenv/config server.js",
-    "debug": "PUBLICWEB=./dist/publicweb node -r dotenv/config --inspect server.js"
+    "local": "WWW=./dist node -r dotenv/config server.js",
+    "debug": "WWW=./dist node -r dotenv/config --inspect server.js"
   },
   "private": true,
   "dependencies": {
