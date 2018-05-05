@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { throwError as observableThrowError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+
 import { ToastService, Villain } from '../core';
 
 const api = '/api';
@@ -50,7 +51,7 @@ export class VillainService {
 
   private handleError(res: HttpErrorResponse) {
     console.error(res.error);
-    return Observable.throw(res.error || 'Server error');
+    return observableThrowError(res.error || 'Server error');
   }
 
   deleteVillain(villain: Villain) {

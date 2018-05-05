@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { throwError as observableThrowError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { Hero, ToastService } from '../core';
@@ -32,7 +32,7 @@ export class HeroService {
 
   private handleError(res: HttpErrorResponse) {
     console.error(res.error);
-    return Observable.throw(res.error || 'Server error');
+    return observableThrowError(res.error || 'Server error');
   }
 
   deleteHero(hero: Hero) {
