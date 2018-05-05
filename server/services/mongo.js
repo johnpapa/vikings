@@ -10,7 +10,9 @@ mongoose.Promise = global.Promise;
 const key = encodeURIComponent(process.env.COSMOSDB_KEY);
 const mongoUri = `mongodb://${process.env.COSMOSDB_ACCOUNT}:${key}@${
   process.env.COSMOSDB_ACCOUNT
-  }.documents.azure.com:${process.env.COSMOSDB_PORT}/${process.env.COSMOSDB_DB}?ssl=true`;
+}.documents.azure.com:${process.env.COSMOSDB_PORT}/${
+  process.env.COSMOSDB_DB
+}?ssl=true`;
 // Local MongoDB Connection String
 // const mongoUri = `mongodb://localhost:27017/heroes-db`;
 
