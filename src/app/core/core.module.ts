@@ -16,8 +16,7 @@ import { NgMaterialModule } from '../ng-material/ng-material.module';
     RouterModule // because we use <router-outlet> and routerLink
   ],
   declarations: [ToolbarComponent],
-  exports: [ToolbarComponent],
-  providers: [ToastService]
+  exports: [ToolbarComponent]
 })
 export class CoreModule {
   constructor(

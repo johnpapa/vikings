@@ -4,10 +4,11 @@ import { throwError as observableThrowError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { Hero, ToastService } from '../core';
+import { HeroesModule } from './heroes.module';
 
 const api = '/api';
 
-@Injectable()
+@Injectable({ providedIn: HeroesModule })
 export class HeroService {
   constructor(private http: HttpClient, private toastService: ToastService) {}
 

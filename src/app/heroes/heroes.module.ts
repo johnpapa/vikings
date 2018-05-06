@@ -12,7 +12,6 @@ import { NgMaterialModule } from '../ng-material/ng-material.module';
 @NgModule({
   imports: [CommonModule, SharedModule, NgMaterialModule, HeroesRoutingModule],
   exports: [HeroesComponent, HeroDetailComponent],
-  declarations: [HeroesComponent, HeroDetailComponent, HeroListComponent],
-  providers: [HeroService]
+  declarations: [HeroesComponent, HeroDetailComponent, HeroListComponent]
 })
 export class HeroesModule { }

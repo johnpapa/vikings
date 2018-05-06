@@ -12,7 +12,6 @@ import { NgMaterialModule } from '../ng-material/ng-material.module';
 @NgModule({
   imports: [CommonModule, SharedModule, NgMaterialModule, VillainsRoutingModule],
   exports: [VillainsComponent, VillainDetailComponent],
-  declarations: [VillainsComponent, VillainDetailComponent, VillainListComponent],
-  providers: [VillainService]
+  declarations: [VillainsComponent, VillainDetailComponent, VillainListComponent]
 })
 export class VillainsModule { }
