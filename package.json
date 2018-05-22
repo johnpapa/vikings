@@ -18,6 +18,9 @@
     "dev-proxy":
       "concurrently \"npm run debug\" \"ng serve --proxy-config proxy.conf.json --open\"",
     "start": "node server.js",
+    "start_debug": "node --inspect=0.0.0.0:9229 server.js",
+    "start_azure_debug":
+      "if [[ ${APPSVC_TUNNEL_PORT} != \"\" ]]; then node --inspect=0.0.0.0:$APPSVC_TUNNEL_PORT server.js; else npm run start; fi",
     "local": "WWW=./dist node -r dotenv/config server.js",
     "debug": "WWW=./dist node -r dotenv/config --inspect server.js"
   },

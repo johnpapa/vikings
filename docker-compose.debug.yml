@@ -11,4 +11,5 @@ services:
     ports:
       - 3001:3001
       - 9229:9229
-    command: node --inspect=0.0.0.0:9229 server.js
+    command: npm run start_debug
+    # command: node --inspect=0.0.0.0:9229 server.js
