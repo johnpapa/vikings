@@ -4,6 +4,7 @@ import { throwError as observableThrowError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { Hero, ToastService } from '../core';
+// import { HeroesModule } from './heroes.module';
 
 const api = '/api';
 
