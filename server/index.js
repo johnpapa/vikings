@@ -9,6 +9,8 @@ function start() {
       'Verify that you have set them directly or in a .env file.'
     );
     process.exit(1);
+  } else {
+    console.log('Using ENV variables');
   }
 
   const express = require('express');

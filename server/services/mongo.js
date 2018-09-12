@@ -18,6 +18,7 @@ const mongoUri = `mongodb://${process.env.COSMOSDB_ACCOUNT}:${key}@${
 
 function connect() {
   if (process.env.USE_COSMOSDB === 'yes') {
+    console.log('using a live database!');
     mongoose.set('debug', true);
     return mongoose.connect(mongoUri);
   }

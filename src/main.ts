@@ -1,7 +1,7 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import 'hammerjs';
-import { AppDevModule } from './app/app-dev.module';
+import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {
@@ -9,7 +9,7 @@ if (environment.production) {
 }
 
 // If you want to pretend there is a database
-platformBrowserDynamic().bootstrapModule(AppDevModule);
+// platformBrowserDynamic().bootstrapModule(AppDevModule);
 
 // If you have a real database, use this
-// platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic().bootstrapModule(AppModule);
