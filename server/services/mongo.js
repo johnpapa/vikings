@@ -20,7 +20,10 @@ function connect() {
   if (process.env.USE_COSMOSDB === 'yes') {
     console.log('using a live database!');
     mongoose.set('debug', true);
-    return mongoose.connect(mongoUri);
+    return mongoose.connect(
+      mongoUri,
+      { useNewUrlParser: true }
+    );
   }
   return;
   // return mongoose.connect(mongoUri, { useMongoClient: true });

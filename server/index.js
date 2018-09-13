@@ -15,7 +15,7 @@ function start() {
 
   const express = require('express');
   const app = express();
-  const port = process.env.PORT || 3001;
+  const port = process.env.PORT || 8626;
   const www = process.env.WWW || './';
   const bodyParser = require('body-parser');
   const routes = require('./routes');

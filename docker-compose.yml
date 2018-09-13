@@ -7,5 +7,5 @@ services:
     environment:
       NODE_ENV: production
     ports:
-      - 3001:3001
+      - 7626:8626
     command: npm run start_azure_debug

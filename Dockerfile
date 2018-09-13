@@ -20,6 +20,6 @@ FROM node:8.11-alpine
 WORKDIR /usr/src/app
 COPY --from=node-server /usr/src /usr/src
 COPY --from=client-app /usr/src/app/dist ./
-EXPOSE 3001
+EXPOSE 8626
 # CMD ["node", "server.js"]
 CMD ["npm", "start"]

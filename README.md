@@ -51,7 +51,7 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 
     ```javascript
     NODE_ENV=development
-    PORT=3001
+    PORT=8626
     WWW=./
     ```
 
@@ -64,7 +64,7 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
     npm dev-proxy
     ```
 
-1. Open the browser to <http://localhost:3001>
+1. Open the browser to <http://localhost:8626>
 
 ## Docker
 
@@ -78,13 +78,13 @@ Create the Docker image that you can `docker push` to a registry. This command u
 
 1. CMD+SHIFT+P `docker: compose up`
 1. Select `docker-compose.debug.yml`
-1. Browse to <http://localhost:3001>
+1. Browse to <http://localhost:7626>
 
 > Do you prefer terminal commands? You can run the docker commands from the terminal
 >
 > ```bash
 > npm run docker-up
-> open http://localhost:3001
+> open http://localhost:7626
 > ```
 
 ### Docker Compose with Debugging
@@ -95,7 +95,7 @@ This uses your `.env` settings and opens port `9229` for debugging.
 
 1. CMD+SHIFT+P `docker: compose up`
 1. Select `docker-compose.debug.yml`
-1. Browse to <http://localhost:3001>
+1. Browse to <http://localhost:7626>
 
 Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
@@ -103,7 +103,7 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 >
 > ```bash
 > npm run docker-debug
-> open http://localhost:3001
+> open http://localhost:7626
 > ```
 
 ## Deploy to Azure

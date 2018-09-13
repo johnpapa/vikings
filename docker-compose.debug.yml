@@ -9,7 +9,7 @@ services:
     # environment:
     #   NODE_ENV: development
     ports:
-      - 3001:3001
+      - 7626:8626
       - 9229:9229
     command: npm run start_debug
     # command: node --inspect=0.0.0.0:9229 server.js
