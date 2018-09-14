@@ -19,7 +19,8 @@
     "start_debug": "node --inspect=0.0.0.0:9229 server.js",
     "start_azure_debug": "if [[ ${APPSVC_TUNNEL_PORT} != \"\" ]]; then node --inspect=0.0.0.0:$APPSVC_TUNNEL_PORT server.js; else npm run start; fi",
     "local": "WWW=./dist node -r dotenv/config server.js",
-    "debug": "WWW=./dist node -r dotenv/config --inspect server.js"
+    "xxxdebug": "WWW=./dist node --inspect-brk=9229 server.js",
+    "debug": "WWW=./dist node -r dotenv/config --inspect=9229 server.js"
   },
   "private": true,
   "dependencies": {

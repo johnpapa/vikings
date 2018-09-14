@@ -21,7 +21,8 @@
       "name": "Launch via NPM",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "debug"],
-      "port": 9229
+      "port": 9229,
+      "trace": "verbose"
     },
     {
       "type": "node",

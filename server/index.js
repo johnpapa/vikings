@@ -1,9 +1,5 @@
-module.exports.start = start;
-
 function start() {
-  const dotenv = require('dotenv');
   if (!process.env.NODE_ENV) {
-    // if (dotenv.error) {
     console.error(
       'ENV variables are missing.',
       'Verify that you have set them directly or in a .env file.'
@@ -11,6 +7,7 @@ function start() {
     process.exit(1);
   } else {
     console.log('Using ENV variables');
+    console.log(process.env);
   }
 
   const express = require('express');
@@ -30,3 +27,5 @@ function start() {
   });
   app.listen(port, () => console.log(`listening on http://localhost:${port}`));
 }
+
+module.exports.start = start;
