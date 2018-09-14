@@ -21,9 +21,7 @@
       "name": "Launch via NPM",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "debug"],
-      "localRoot": "${workspaceFolder}",
-      "port": 9229,
-      "trace": "verbose"
+      "port": 9229
     },
     {
       "type": "node",
