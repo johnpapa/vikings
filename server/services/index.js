@@ -1,6 +1,9 @@
-require('./mongo').connect();
+// require('./mongo').connect();
+
+const heroService = require('./hero.service');
+const villainService = require('./villain.service');
 
 module.exports = {
-  heroService: require('./hero.service'),
-  villainService: require('./villain.service')
+  heroService,
+  villainService
 };

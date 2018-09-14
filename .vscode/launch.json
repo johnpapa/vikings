@@ -10,11 +10,8 @@
       "name": "Launch via NPM",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run-script",
-        "debug"
-      ],
-      "localRoot": "${workspaceFolder}/src",
+      "runtimeArgs": ["run-script", "debug"],
+      "localRoot": "${workspaceFolder}",
       "port": 9229
     },
     {

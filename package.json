@@ -19,7 +19,8 @@
     "start_debug": "node --inspect=0.0.0.0:9229 server.js",
     "start_azure_debug": "if [[ ${APPSVC_TUNNEL_PORT} != \"\" ]]; then node --inspect=0.0.0.0:$APPSVC_TUNNEL_PORT server.js; else npm run start; fi",
     "local": "WWW=./dist node -r dotenv/config server.js",
-    "debug": "WWW=./dist node -r dotenv/config --inspect server.js"
+    "xdebug": "WWW=./dist node -r dotenv/config --inspect=0.0.0.0:9229 server.js",
+    "debug": "WWW=./dist node --inspect server.js"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +35,7 @@
     "@angular/platform-browser": "6.1.7",
     "@angular/platform-browser-dynamic": "6.1.7",
     "@angular/router": "6.1.7",
+    "@azure/cosmos": "^2.0.0-4",
     "angular-in-memory-web-api": "^0.6.0",
     "body-parser": "^1.18.2",
     "core-js": "^2.5.4",
@@ -54,6 +56,10 @@
     "@types/node": "^10.9.4",
     "codelyzer": "^4.2.1",
     "concurrently": "^4.0.1",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.14.0",
     "jasmine-core": "^3.2.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^3.0.0",
