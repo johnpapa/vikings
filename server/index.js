@@ -1,3 +1,8 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const routes = require('./routes');
+const captains = console;
+
 function start() {
   if (!process.env.NODE_ENV) {
     console.error(

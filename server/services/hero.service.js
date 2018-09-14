@@ -1,13 +1,17 @@
 // const models = require('../models');
-const { getDatabase } = require('./db');
-const { /* databaseDefName, */ heroContainer } = require('./config');
+// const { getDatabase } = require('./db');
+
+const { client } = require('./db');
+const { databaseDefName, heroContainer } = require('./config');
 
 // const ReadPreference = require('mongodb').ReadPreference;
 // require('./mongo').connect();
 // const { Hero } = models;
 
 async function getHeroes(req, res) {
-  const container = await getDatabase().container(heroContainer);
+  const container = await client
+    .database(databaseDefName)
+    .container(heroContainer);
 
   const { result: heroes } = await container.items.readAll().toArray();
 

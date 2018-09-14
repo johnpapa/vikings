@@ -1,4 +1,5 @@
 const cosmos = require('@azure/cosmos');
+
 const {
   databaseDefName,
   endpoint,
@@ -16,5 +17,6 @@ async function getDatabase() {
 }
 
 module.exports = {
+  client,
   getDatabase
 };
