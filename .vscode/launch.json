@@ -7,12 +7,23 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Launch server.js",
+      "program": "${workspaceFolder}/server.js",
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        "WWW": "./dist"
+      },
+      "args": ["-r dotenv/config", "--inspect"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch via NPM",
-      "cwd": "${workspaceFolder}",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "debug"],
       "localRoot": "${workspaceFolder}",
-      "port": 9229
+      "port": 9229,
+      "trace": "verbose"
     },
     {
       "type": "node",

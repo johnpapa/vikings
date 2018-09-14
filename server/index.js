@@ -1,22 +1,13 @@
-module.exports.start = start;
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const routes = require('./routes');
-require('dotenv');
-
-const captains = console;
-
 function start() {
   if (!process.env.NODE_ENV) {
-    // if (dotenv.error) {
-    captains.error(
+    console.error(
       'ENV variables are missing.',
       'Verify that you have set them directly or in a .env file.'
     );
     process.exit(1);
   } else {
-    captains.log('Using ENV variables');
+    console.log('Using ENV variables');
+    console.log(process.env);
   }
 
   const app = express();
@@ -33,3 +24,5 @@ function start() {
   });
   app.listen(port, () => captains.log(`listening on http://localhost:${port}`));
 }
+
+module.exports.start = start;
