@@ -7,7 +7,6 @@ function start() {
     process.exit(1);
   } else {
     console.log('Using ENV variables');
-    console.log(process.env);
   }
 
   const express = require('express');
