@@ -7,17 +7,17 @@ mongoose.Promise = global.Promise;
 
 // Cosmos DB Connection String
 // &replicaSet=globaldb`;
-const key = encodeURIComponent(process.env.COSMOSDB_KEY);
-const mongoUri = `mongodb://${process.env.COSMOSDB_ACCOUNT}:${key}@${
-  process.env.COSMOSDB_ACCOUNT
-}.documents.azure.com:${process.env.COSMOSDB_PORT}/${
-  process.env.COSMOSDB_DB
+const key = encodeURIComponent(process.env.MONGO_API_KEY);
+const mongoUri = `mongodb://${process.env.MONGO_API_ACCOUNT}:${key}@${
+  process.env.MONGO_API_ACCOUNT
+}.documents.azure.com:${process.env.MONGO_API_PORT}/${
+  process.env.MONGO_API_DB
 }?ssl=true`;
 // Local MongoDB Connection String
 // const mongoUri = `mongodb://localhost:27017/heroes-db`;
 
 function connect() {
-  if (process.env.USE_COSMOSDB === 'yes') {
+  if (process.env.USE_LIVE_DATA === 'yes') {
     console.log('using a live database!');
     mongoose.set('debug', true);
     return mongoose.connect(

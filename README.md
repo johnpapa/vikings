@@ -10,15 +10,15 @@ Angular, Node, Docker, Azure!
 
 Here are all of the slides/code from my presentation at [ngVikings event](https://twitter.com/ngvikingsconf) this week!
 
-* Slides: <http://slides.com/johnpapa/vikings2018>
-* Code: <https://github.com/johnpapa/vikings>
-* Angular extensions: <https://aka.ms/ng-essentials>
-* Node extensions: <https://aka.ms/vsc-node>
-* Free Azure Trial: <https://aka.ms/jp-free>
+- Slides: <http://slides.com/johnpapa/vikings2018>
+- Code: <https://github.com/johnpapa/vikings>
+- Angular extensions: <https://aka.ms/ng-essentials>
+- Node extensions: <https://aka.ms/vsc-node>
+- Free Azure Trial: <https://aka.ms/jp-free>
 
 ## Requirements
 
-* Install the Angular CLI
+- Install the Angular CLI
 
   Only required when running local, _without docker_.
 
@@ -30,45 +30,45 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 
 1. Clone this repository
 
-    ```bash
-    git clone https://github.com/johnpapa/vikings.git
-    cd vikings
-    ```
+   ```bash
+   git clone https://github.com/johnpapa/vikings.git
+   cd vikings
+   ```
 
 1. Install the npm packages
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 1. Configure environment settings
 
-    Create a file with the following name and location `.env` and copy the contents from
-    `.env.example` into it. Replace the values with your specific configuration. Don't worry, this
-    file is in the `.gitignore` so it won't get pushed to github.
+   Create a file with the following name and location `.env` and copy the contents from
+   `.env.example` into it. Replace the values with your specific configuration. Don't worry, this
+   file is in the `.gitignore` so it won't get pushed to github.
 
-    Take care not to include extra spaces or quotes. These values are taken verbatum.
+   Take care not to include extra spaces or quotes. These values are taken verbatum.
 
-    ```javascript
-    NODE_ENV=development
-    PORT=8626
-    WWW=./
-    ```
+   ```javascript
+   NODE_ENV=development
+   PORT=8626
+   WWW=./
+   ```
 
 ## Running the app locally
 
 1. Build the Angular app and launch the node server
 
-    ```bash
-    ng build
-    npm dev-proxy
-    ```
+   ```bash
+   ng build
+   npm dev-proxy
+   ```
 
 1. Open the browser to <http://localhost:8626>
 
 ## Docker
 
-* Install and run [Docker](https://www.docker.com/community-edition)
+- Install and run [Docker](https://www.docker.com/community-edition)
 
 ### Docker Compose
 
@@ -112,15 +112,15 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
 1. Azure account
 
-    Free Azure Trial - <https://aka.ms/jp-free>
+   Free Azure Trial - <https://aka.ms/jp-free>
 
 1. Install the Azure CLI
 
-    link
+   link
 
 1. Azure/Node/Docker extensions for VS Code
 
-    Extensions: <https://aka.ms/vsc-node>
+   Extensions: <https://aka.ms/vsc-node>
 
 ### Deploy Docker Image to Azure
 
@@ -129,7 +129,7 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 1. Go to the Docker extension in the sidebar and expand `Images`
 1. Right click the image and select `tag`
 1. Prefix the tag with your container registry name
-    e.g Azure container registry `papacr.azurecr.io/vikings:latest`
+   e.g Azure container registry `papacr.azurecr.io/vikings:latest`
 1. Right click the image and select `push`
 1. Expand `Registries / Azure` in the Docker extension in the sidebar
 1. Right click the image you pushed and select `deploy to azure app service`
@@ -139,9 +139,9 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
 1. Azure Container Registry Login command may be needed
 
-    ```bash
-    az acr login --name your-azure-container-registry-name
-    ```
+   ```bash
+   az acr login --name your-azure-container-registry-name
+   ```
 
 > If you get errors with `az acr login` try running `az account clear`. Then run `az login` again and follow the prompts. Then try again with `az acr login`
 
@@ -153,15 +153,15 @@ This Vikings demo uses an in memory data store by default. If you would like to 
 
 1. Configure Cosmos DB server settings
 
-    In the `.env` and append the `COSMOSDB` specific setting shown below, but for your specific configuration.
+   In the `.env` and append the `COSMOSDB` specific setting shown below, but for your specific configuration.
 
-    ```javascript
-    USE_COSMOSDB = yes;
-    COSMOSDB_ACCOUNT = your_cosmos_account;
-    COSMOSDB_DB = your_cosmos_db;
-    COSMOSDB_KEY = your_cosmos_key;
-    COSMOSDB_PORT = 10255;
-    ```
+   ```javascript
+   USE_LIVE_DATA = yes;
+   MONGO_API_ACCOUNT = your_cosmos_account;
+   MONGO_API_DB = your_cosmos_db;
+   MONGO_API_KEY = your_cosmos_key;
+   MONGO_API_PORT = 10255;
+   ```
 
 ## Problems or Suggestions
 
