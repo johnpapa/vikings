@@ -8,14 +8,20 @@ const { databaseDefName, heroContainer } = require('./config');
 // require('./mongo').connect();
 // const { Hero } = models;
 
+// TODO: create a new vikings-core account with a vikings-db using the core/sql/nosql api
+// if they end in verbs, thats a promise
+
+// async function getHerooooooooes(flag) {}
+
 async function getHeroes(req, res) {
-  const container = await client
-    .database(databaseDefName)
-    .container(heroContainer);
+  const container = client.database(databaseDefName).container(heroContainer);
 
-  const { result: heroes } = await container.items.readAll().toArray();
-
-  res.status(200).json(heroes);
+  try {
+    const { result: heroes } = await container.items.readAll().toArray();
+    res.status(200).json(heroes);
+  } catch (error) {
+    res.status(500).send(error);
+  }
 
   // const docquery = Hero.find({}).read(ReadPreference.NEAREST);
   // docquery
@@ -23,6 +29,18 @@ async function getHeroes(req, res) {
   //   .then(heroes => res.status(200).json(heroes))
   //   .catch(error => res.status(500).send(error));
 }
+
+// function getHeroesViaPromises(req, res) {
+//   client
+//     .database(databaseDefName)
+//     .container(heroContainer)
+//     .items.readAll()
+//     .toArray()
+//     .then(({ result: heroes }) => {
+//       res.status(200).json(heroes);
+//     })
+//     .catch(error => res.status(500).send(error));
+// }
 
 // function postHero(req, res) {
 //   const originalHero = {
