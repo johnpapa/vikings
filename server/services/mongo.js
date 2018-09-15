@@ -5,8 +5,6 @@ const mongoose = require('mongoose');
  */
 mongoose.Promise = global.Promise;
 
-// Cosmos DB Connection String
-// &replicaSet=globaldb`;
 const key = encodeURIComponent(process.env.MONGO_API_KEY);
 const mongoUri = `mongodb://${process.env.MONGO_API_ACCOUNT}:${key}@${
   process.env.MONGO_API_ACCOUNT
@@ -26,7 +24,6 @@ function connect() {
     );
   }
   return;
-  // return mongoose.connect(mongoUri, { useMongoClient: true });
 }
 
 module.exports = {
