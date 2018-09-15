@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
-import { Hero } from '../../core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { Hero, ModalComponent } from '../../core';
 
 @Component({
   selector: 'vk-hero-list',
@@ -13,6 +13,8 @@ export class HeroListComponent {
   @Output() deleted = new EventEmitter<Hero>();
   @Output() selected = new EventEmitter<Hero>();
 
+  constructor(public dialog: MatDialog) {}
+
   byId(hero: Hero) {
     return hero.id;
   }
@@ -22,6 +24,22 @@ export class HeroListComponent {
   }
 
   deleteHero(hero: Hero) {
-    this.deleted.emit(hero);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '250px';
+    dialogConfig.data = {
+      title: 'Delete Hero',
+      message: `Do you want to delete ${hero.name}`
+    };
+
+    const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(deleteIt => {
+      console.log('The dialog was closed');
+      if (deleteIt) {
+        this.deleted.emit(hero);
+      }
+    });
   }
 }
