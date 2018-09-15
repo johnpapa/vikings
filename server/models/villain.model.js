@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const counter = require('./counter');
 
 const Schema = mongoose.Schema;
 const villainSchema = new Schema(
   {
-    id: { type: Number, default: 0 },
+    id: String,
     name: String,
     description: String
   },
@@ -13,10 +12,6 @@ const villainSchema = new Schema(
     read: 'nearest'
   }
 );
-
-villainSchema.pre('save', function(next) {
-  counter.increment('villains', this, next);
-});
 
 const Villain = mongoose.model('Villain', villainSchema);
 

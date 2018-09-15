@@ -17,6 +17,7 @@ function postVillain(req, res) {
     name: req.body.name,
     description: req.body.description
   };
+  originalVillain.id = `Villain${originalVillain.name}`;
   const villain = new Villain(originalVillain);
   villain.save(error => {
     if (checkServerError(res, error)) return;
@@ -27,7 +28,7 @@ function postVillain(req, res) {
 
 function putVillain(req, res) {
   const updatedVillain = {
-    id: parseInt(req.params.id, 10),
+    id: req.params.id,
     name: req.body.name,
     description: req.body.description
   };
@@ -45,7 +46,7 @@ function putVillain(req, res) {
 }
 
 function deleteVillain(req, res) {
-  const id = parseInt(req.params.id, 10);
+  const id = req.params.id;
   Villain.findOneAndRemove({ id: id })
     .then(villain => {
       if (!checkFound(res, villain)) return;

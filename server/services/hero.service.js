@@ -17,6 +17,7 @@ function postHero(req, res) {
     name: req.body.name,
     description: req.body.description
   };
+  originalHero.id = `Hero${originalHero.name}`;
   const hero = new Hero(originalHero);
   hero.save(error => {
     if (checkServerError(res, error)) return;
@@ -27,7 +28,7 @@ function postHero(req, res) {
 
 function putHero(req, res) {
   const updatedHero = {
-    id: parseInt(req.params.id, 10),
+    id: req.params.id,
     name: req.body.name,
     description: req.body.description
   };
@@ -45,7 +46,7 @@ function putHero(req, res) {
 }
 
 function deleteHero(req, res) {
-  const id = parseInt(req.params.id, 10);
+  const id = req.params.id;
   Hero.findOneAndRemove({ id: id })
     .then(hero => {
       if (!checkFound(res, hero)) return;
