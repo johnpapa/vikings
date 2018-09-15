@@ -1,9 +1,7 @@
-const data = require('./data');
-const Hero = require('./hero.model');
-const Villain = require('./villain.model');
+const heroes = require('./heroes');
+const villains = require('./villains');
 
 module.exports = {
-  data,
-  Hero,
-  Villain
+  heroes,
+  villains
 };

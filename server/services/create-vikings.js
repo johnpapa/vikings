@@ -1,13 +1,12 @@
 const cosmos = require('@azure/cosmos');
 const { endpoint, masterKey } = require('./config');
 const { databaseDefName } = require('./config');
-const { data } = require('../models');
+const { heroes, villains } = require('../models');
 
 const captains = console;
-const { heroes } = data;
 const { CosmosClient } = cosmos;
 const client = new CosmosClient({ endpoint, auth: { masterKey } });
-const { heroContainer } = require('./config');
+const { heroContainer, villainContainer } = require('./config');
 
 go()
   .then(() => captains.log('Successfully completed!'))
@@ -24,9 +23,14 @@ async function go() {
   });
   captains.log(`created database ${database.id}`);
 
+  await bulkCreate(database, heroContainer, heroes);
+  await bulkCreate(database, villainContainer, villains);
+}
+
+async function bulkCreate(database, containerDef, items) {
   // Create the container
   const containerDefinition = {
-    id: heroContainer,
+    id: containerDef,
     indexingPolicy: { automatic: false } // turn of indexes
   };
   const { container } = await database.containers.createIfNotExists(
@@ -36,16 +40,11 @@ async function go() {
 
   // Insert the items
   /* eslint-disable */
-  for (const hero of heroes) {
-    const { body } = await container.items.create(hero);
+  for (const item of items) {
+    const { body } = await container.items.create(item);
     captains.log(`created item with content: `, body);
   }
   /* eslint-enable */
-
-  // await heroes.forEach(async hero => {
-  //   const { body } = await container.items.create(hero);
-  //   captains.log(`created item with content: `, body.content);
-  // });
 
   // Read the items
   const { result } = await container.items.readAll().toArray();

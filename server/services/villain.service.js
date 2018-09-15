@@ -1,81 +1,65 @@
-// const models = require('../models');
+const { client } = require('./db');
+const { databaseDefName, villainContainer } = require('./config');
 
-// const Villain = models.Villain;
-// const ReadPreference = require('mongodb').ReadPreference;
+const container = client.database(databaseDefName).container(villainContainer);
+const captains = console;
 
-// // require('./mongo').connect();
+async function getVillains(req, res) {
+  try {
+    const { result: villains } = await container.items.readAll().toArray();
+    res.status(200).json(villains);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
 
-// function getVillains(req, res) {
-//   const docquery = Villain.find({}).read(ReadPreference.NEAREST);
-//   docquery
-//     .exec()
-//     .then(villains => res.status(200).json(villains))
-//     .catch(error => res.status(500).send(error));
-// }
+async function postVillain(req, res) {
+  const villain = {
+    name: req.body.name,
+    description: req.body.description
+  };
+  villain.id = `Villain ${villain.name}`;
 
-// function postVillain(req, res) {
-//   const originalVillain = {
-//     name: req.body.name,
-//     description: req.body.description
-//   };
-//   const villain = new Villain(originalVillain);
-//   villain.save(error => {
-//     if (checkServerError(res, error)) return;
-//     res.status(201).json(villain);
-//     console.log('Villain created successfully!');
-//   });
-// }
+  try {
+    const { body } = await container.items.create(villain);
+    res.status(201).json(body);
+    captains.log('Villain created successfully!');
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
 
-// function putVillain(req, res) {
-//   const updatedVillain = {
-//     id: parseInt(req.params.id, 10),
-//     name: req.body.name,
-//     description: req.body.description
-//   };
+async function putVillain(req, res) {
+  const villain = {
+    id: req.params.id,
+    name: req.body.name,
+    description: req.body.description
+  };
 
-//   Villain.findOneAndUpdate(
-//     { id: updatedVillain.id },
-//     { $set: updatedVillain },
-//     { upsert: true, new: true },
-//     (error, doc) => {
-//       if (checkServerError(res, error)) return;
-//       res.status(200).json(doc);
-//       console.log('Villain updated successfully!');
-//     }
-//   );
-// }
+  try {
+    const { body } = await container.items.upsert(villain);
+    res.status(200).json(body);
+    captains.log('Villain updated successfully!');
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
 
-// function deleteVillain(req, res) {
-//   const id = parseInt(req.params.id, 10);
-//   Villain.findOneAndRemove({ id: id })
-//     .then(villain => {
-//       if (!checkFound(res, villain)) return;
-//       res.status(200).json(villain);
-//       console.log('Villain deleted successfully!');
-//     })
-//     .catch(error => {
-//       if (checkServerError(res, error)) return;
-//     });
-// }
+async function deleteVillain(req, res) {
+  const { id } = req.params;
 
-// function checkServerError(res, error) {
-//   if (error) {
-//     res.status(500).send(error);
-//     return error;
-//   }
-// }
-
-// function checkFound(res, villain) {
-//   if (!villain) {
-//     res.status(404).send('Villain not found.');
-//     return;
-//   }
-//   return villain;
-// }
+  try {
+    const { body } = await container.item(id).delete();
+    res.status(200).json(body);
+    captains.log('Villain deleted successfully!');
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
 
 module.exports = {
-  // getVillains,
-  // postVillain,
-  // putVillain,
-  // deleteVillain
+  getVillains,
+  postVillain,
+  putVillain,
+  deleteVillain
 };

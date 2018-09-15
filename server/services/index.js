@@ -1,5 +1,3 @@
-// require('./mongo').connect();
-
 const heroService = require('./hero.service');
 const villainService = require('./villain.service');
 

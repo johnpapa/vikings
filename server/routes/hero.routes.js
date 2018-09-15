@@ -2,7 +2,6 @@ const express = require('express');
 const services = require('../services');
 
 const router = express.Router();
-
 const { heroService } = services;
 
 router.get('/heroes', (req, res) => {

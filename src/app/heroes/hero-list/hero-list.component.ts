@@ -8,14 +8,10 @@ import { Hero, ModalComponent } from '../../core';
   styleUrls: ['./hero-list.component.scss']
 })
 export class HeroListComponent {
-  @Input()
-  heroes: Hero[];
-  @Input()
-  selectedHero: Hero;
-  @Output()
-  deleted = new EventEmitter<Hero>();
-  @Output()
-  selected = new EventEmitter<Hero>();
+  @Input() heroes: Hero[];
+  @Input() selectedHero: Hero;
+  @Output() deleted = new EventEmitter<Hero>();
+  @Output() selected = new EventEmitter<Hero>();
 
   constructor(public dialog: MatDialog) {}
 
