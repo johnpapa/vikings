@@ -7,5 +7,5 @@ module.exports = {
   databaseDefName: 'vikings-db',
   heroContainer: 'heroes',
   villainContainer: 'villains',
-  counterContainer: 'counters',
+  counterContainer: 'counters'
 };

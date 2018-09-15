@@ -1,18 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
+
 const captains = console;
 
 function start() {
   if (!process.env.NODE_ENV) {
-    console.error(
+    captains.error(
       'ENV variables are missing.',
       'Verify that you have set them directly or in a .env file.'
     );
     process.exit(1);
   } else {
-    console.log('Using ENV variables');
-    console.log(process.env);
+    captains.log('Using ENV variables');
   }
 
   const app = express();
