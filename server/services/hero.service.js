@@ -1,33 +1,17 @@
-// const models = require('../models');
-// const { getDatabase } = require('./db');
-
 const { client } = require('./db');
 const { databaseDefName, heroContainer } = require('./config');
 
-// const ReadPreference = require('mongodb').ReadPreference;
-// require('./mongo').connect();
-// const { Hero } = models;
-
-// TODO: create a new vikings-core account with a vikings-db using the core/sql/nosql api
-// if they end in verbs, thats a promise
-
 // async function getHerooooooooes(flag) {}
+const container = client.database(databaseDefName).container(heroContainer);
+const captains = console;
 
 async function getHeroes(req, res) {
-  const container = client.database(databaseDefName).container(heroContainer);
-
   try {
     const { result: heroes } = await container.items.readAll().toArray();
     res.status(200).json(heroes);
   } catch (error) {
     res.status(500).send(error);
   }
-
-  // const docquery = Hero.find({}).read(ReadPreference.NEAREST);
-  // docquery
-  //   .exec()
-  //   .then(heroes => res.status(200).json(heroes))
-  //   .catch(error => res.status(500).send(error));
 }
 
 // function getHeroesViaPromises(req, res) {
@@ -42,69 +26,53 @@ async function getHeroes(req, res) {
 //     .catch(error => res.status(500).send(error));
 // }
 
-// function postHero(req, res) {
-//   const originalHero = {
-//     name: req.body.name,
-//     description: req.body.description
-//   };
-//   const hero = new Hero(originalHero);
-//   hero.save(error => {
-//     if (checkServerError(res, error)) return;
-//     res.status(201).json(hero);
-//     console.log('Hero created successfully!');
-//   });
-// }
+async function postHero(req, res) {
+  const hero = {
+    name: req.body.name,
+    description: req.body.description
+  };
+  hero.id = `Hero ${hero.name}`;
 
-// function putHero(req, res) {
-//   const updatedHero = {
-//     id: parseInt(req.params.id, 10),
-//     name: req.body.name,
-//     description: req.body.description
-//   };
+  try {
+    const { body } = await container.items.create(hero);
+    res.status(201).json(body);
+    captains.log('Hero created successfully!');
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
 
-//   Hero.findOneAndUpdate(
-//     { id: updatedHero.id },
-//     { $set: updatedHero },
-//     { upsert: true, new: true },
-//     (error, doc) => {
-//       if (checkServerError(res, error)) return;
-//       res.status(200).json(doc);
-//       console.log('Hero updated successfully!');
-//     }
-//   );
-// }
+async function putHero(req, res) {
+  const hero = {
+    id: req.params.id,
+    name: req.body.name,
+    description: req.body.description
+  };
 
-// function deleteHero(req, res) {
-//   const id = parseInt(req.params.id, 10);
-//   Hero.findOneAndRemove({ id: id })
-//     .then(hero => {
-//       if (!checkFound(res, hero)) return;
-//       res.status(200).json(hero);
-//       console.log('Hero deleted successfully!');
-//     })
-//     .catch(error => {
-//       if (checkServerError(res, error)) return;
-//     });
-// }
+  try {
+    const { body } = await container.items.upsert(hero);
+    res.status(200).json(body);
+    captains.log('Hero updated successfully!');
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
 
-// function checkServerError(res, error) {
-//   if (error) {
-//     res.status(500).send(error);
-//     return error;
-//   }
-// }
+async function deleteHero(req, res) {
+  const { id } = req.params;
 
-// function checkFound(res, hero) {
-//   if (!hero) {
-//     res.status(404).send('Hero not found.');
-//     return;
-//   }
-//   return hero;
-// }
+  try {
+    const { body } = await container.item(id).delete();
+    res.status(200).json(body);
+    captains.log('Hero deleted successfully!');
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
 
 module.exports = {
-  getHeroes
-  // postHero,
-  // putHero,
-  // deleteHero
+  getHeroes,
+  postHero,
+  putHero,
+  deleteHero
 };

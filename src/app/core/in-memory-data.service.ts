@@ -2,8 +2,11 @@
  * Hero-oriented InMemoryDbService with method overrides.
  */
 import { Injectable } from '@angular/core';
-
-import { RequestInfo, RequestInfoUtilities, ParsedRequestUrl } from 'angular-in-memory-web-api';
+import {
+  ParsedRequestUrl,
+  RequestInfo,
+  RequestInfoUtilities
+} from 'angular-in-memory-web-api';
 
 /** In-memory database data */
 interface Db {
@@ -46,7 +49,9 @@ export class InMemoryDataService {
    */
   parseRequestUrl(url: string, utils: RequestInfoUtilities): ParsedRequestUrl {
     const parsed = utils.parseRequestUrl(url);
-    parsed.collectionName = this.active ? mapCollectionName(parsed.collectionName) : undefined;
+    parsed.collectionName = this.active
+      ? mapCollectionName(parsed.collectionName)
+      : undefined;
     return parsed;
   }
 }
@@ -71,32 +76,32 @@ function mapCollectionName(name: string): string {
 function getDbData() {
   const heroes: any[] = [
     {
-      id: 11,
+      id: 'HeroRagnar',
       name: 'Ragnar Lothbrok',
       description: 'aka Ragnar Sigurdsson'
     },
     {
-      id: 12,
+      id: 'HeroIvar',
       name: 'Ivar the Boneless',
       description: 'commander of the Great Heathen Army'
     },
     {
-      id: 13,
+      id: 'HeroBjorn',
       name: 'Bjorn Ironside',
       description: 'king of 9th century Sweden'
     },
     {
-      id: 14,
+      id: 'HeroLagertha',
       name: 'Lagertha the Shieldmaiden',
       description: 'aka Hlaðgerðr'
     },
     {
-      id: 15,
+      id: 'HeroAslaug',
       name: 'Aslaug',
       description: 'warrior queen'
     },
     {
-      id: 16,
+      id: 'HeroThora',
       name: 'Thora Town-hart',
       description: 'daughter of Earl Herrauðr of Götaland'
     }
@@ -104,17 +109,17 @@ function getDbData() {
 
   const villains: any[] = [
     {
-      id: 21,
+      id: 'VillainJohn',
       name: 'John',
       description: 'Slayer of JavaScript'
     },
     {
-      id: 22,
+      id: 'VillainSimona',
       name: 'Simona',
       description: 'Wielder of the Service Worker'
     },
     {
-      id: 23,
+      id: 'VillainAsim',
       name: 'Asim',
       description: 'The Hacker of Node'
     }
