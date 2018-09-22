@@ -21,6 +21,7 @@ switch (process.env.DATA_OPTION) {
     break;
 
   default:
+    captains.log(`Database not selected`);
     break;
 }
 

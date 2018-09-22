@@ -5,7 +5,7 @@ const routes = require('./routes');
 const captains = console;
 
 function start() {
-  if (!process.env.NODE_ENV) {
+  if (!process.env.NODE_ENV || !process.env.PORT) {
     captains.error(
       'ENV variables are missing.',
       'Verify that you have set them directly or in a .env file.',
