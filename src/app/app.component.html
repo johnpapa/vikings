@@ -1,6 +1,6 @@
 <div class="layout">
   <vk-toolbar></vk-toolbar>
-  <div class="content">
-    <router-outlet></router-outlet>
+  <div [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>
