@@ -14,7 +14,7 @@ mongoose.Promise = global.Promise;
 
 const key = encodeURIComponent(mongoApiKey);
 const mongoOnCosmosUri = `mongodb://${mongoApiAccount}:${key}@${mongoApiAccount}.documents.azure.com:${mongoApiPort}/${mongoDb}?ssl=true`;
-const mongoUri = `mongodb://localhost:27017/heroes-db`;
+const mongoUri = `mongodb://localhost:27017/vikings-db`;
 let dbUri = '';
 
 if (process.env.DATA_OPTION === 'local_mongo') {

@@ -7,13 +7,17 @@ import { SettingsService } from '../settings.service';
   styleUrls: ['./toolbar.component.scss'],
   })
 export class ToolbarComponent implements OnInit {
-  labTitle = 'Angular Vikings';
-  labState = 'Welcome !';
+  labTitle = 'Vikings';
+
+  labState = 'Welcome!';
+
   dbName = '';
 
   constructor(private settingsService: SettingsService) {}
 
   ngOnInit() {
-    this.settingsService.getSettings().subscribe(settings => (this.dbName = settings.name));
+    this.settingsService.getSettings().subscribe((settings) => {
+      this.dbName = settings.name || 'n/a';
+    });
   }
 }

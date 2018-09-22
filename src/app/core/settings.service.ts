@@ -9,6 +9,6 @@ export class SettingsService {
   constructor(private http: HttpClient) {}
 
   getSettings() {
-    return this.http.get<any>(`${api}/settings`).pipe(map(settings => settings[0]));
+    return this.http.get<any>(`${api}/settings`).pipe(map(settings => settings[0] || {}));
   }
 }
