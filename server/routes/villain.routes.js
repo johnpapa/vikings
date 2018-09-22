@@ -1,8 +1,8 @@
 const express = require('express');
-const router = express.Router();
-
 const services = require('../services');
-const villainService = services.villainService;
+
+const router = express.Router();
+const { villainService } = services;
 
 router.get('/villains', (req, res) => {
   villainService.getVillains(req, res);
