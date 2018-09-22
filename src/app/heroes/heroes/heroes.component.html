@@ -1,7 +1,8 @@
 <div class="control-panel">
   <div class="button-panel">
     <button mat-raised-button color="primary" type="button" (click)="getHeroes()" matTooltip="Refresh the heroes">Refresh</button>
-    <button mat-raised-button color="primary" type="button" (click)="enableAddMode()" *ngIf="!addingHero && !selectedHero" matTooltip="Add a new hero">Add</button>
+    <button mat-raised-button color="primary" type="button" (click)="enableAddMode()" *ngIf="!addingHero && !selectedHero"
+      matTooltip="Add a new hero">Add</button>
   </div>
 </div>
 <div class="content-container">
@@ -13,8 +14,9 @@
       </ng-template>
     </div>
   </div>
-  <div class="detail-container">
-    <vk-hero-detail *ngIf="selectedHero || addingHero" [hero]="selectedHero" (unselect)="unselect()" (add)="add($event)" (update)="update($event)">
+  <div class="detail-container open-close-container" [@openCloseAnimation]="(selectedHero || addingHero)"
+    *ngIf="(selectedHero || addingHero)">
+    <vk-hero-detail [hero]="selectedHero" (unselect)="unselect()" (add)="add($event)" (update)="update($event)">
     </vk-hero-detail>
   </div>
 </div>

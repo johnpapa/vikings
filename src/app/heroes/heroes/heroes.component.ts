@@ -3,11 +3,13 @@ import { finalize } from 'rxjs/operators';
 
 import { Hero } from '../../core';
 import { HeroService } from '../hero.service';
+import { openCloseAnimation } from '../../core/animations';
 
 @Component({
   selector: 'vk-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.scss']
+  styleUrls: ['./heroes.component.scss'],
+  animations: [openCloseAnimation]
 })
 export class HeroesComponent implements OnInit {
   addingHero = false;

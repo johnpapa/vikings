@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: 'villains',
     loadChildren: 'app/villains/villains.module#VillainsModule',
-    data: { animation: 'AboutPage' },
+    data: { animation: 'VillainsPage' },
   },
 ];
 
