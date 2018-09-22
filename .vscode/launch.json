@@ -32,6 +32,13 @@
       "localRoot": "${workspaceFolder}",
       "remoteRoot": "/usr/src/app",
       "protocol": "inspector"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "name": "Launch Relative File",
+      "args": ["${relativeFile}"]
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Vikings
 
-Demo App from ngVikings 2018
+Demo App for Vikings - 2018
 
 by [John Papa](http://twitter.com/john_papa)
 
@@ -43,25 +43,53 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 
 1. Configure environment settings
 
-   Create a file with the following name and location `.env` and copy the contents from
-   `.env.example` into it. Replace the values with your specific configuration. Don't worry, this
-   file is in the `.gitignore` so it won't get pushed to github.
+  Create a file with the following name and location `.env` and copy the contents from
+  `.env.example` into it. Replace the values with your specific configuration. Don't worry, this
+  file is in the `.gitignore` so it won't get pushed to github.
 
-   Take care not to include extra spaces or quotes. These values are taken verbatum.
+  Take care not to include extra spaces or quotes. These values are taken verbatum.
 
-   ```javascript
-   NODE_ENV=development
-   PORT=8626
-   WWW=./
-   ```
+  ```javascript
+  NODE_ENV=development
+  PORT=8626
+  WWW=./
 
-## Running the app locally
+  # Toggle which one of these you want to use
+  #DATA_OPTION=local_mongo
+  #DATA_OPTION=cloud_cosmos
+  DATA_OPTION=cloud_cosmos_sdk
+
+  CORE_API_KEY=your-core-api-key-goes-here
+  CORE_API_URL=https://vikings-core.documents.azure.com:443/
+
+  USE_LIVE_DATA=yes
+  MONGO_API_ACCOUNT=vikings
+  MONGO_API_DB=vikings-db
+  MONGO_API_KEY=your-mongo-api-key-goes-here
+  MONGO_API_PORT=10255
+
+  # use localhost or your linked docker container
+  LOCAL_MONGO=localhost
+  ```
+
+## Running the app locally, with live refresh of the client
 
 1. Build the Angular app and launch the node server
 
    ```bash
    ng build
    npm dev-proxy
+   ```
+
+1. Open the browser to <http://localhost:8626>
+
+## Running the app locally serving the client app
+
+1. Build the Angular app and launch the node server
+
+   ```bash
+   ng build
+   npm run local
    ```
 
 1. Open the browser to <http://localhost:8626>

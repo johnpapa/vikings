@@ -1,6 +1,12 @@
 version: '2.1'
 
 services:
+  mongo:
+    image: mongo
+    volumes:
+      - ./data/vikings-db:/data/db
+    ports:
+      - 27017:27017
   vikings:
     image: vikings
     build: .
@@ -9,6 +15,8 @@ services:
     # environment:
     #   NODE_ENV: development
     restart: always
+    links:
+      - mongo
     ports:
       - 7626:8626
       - 9229:9229

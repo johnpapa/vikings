@@ -1,30 +1,33 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const routes = require('./routes');
+
+const captains = console;
+
 function start() {
-  if (!process.env.NODE_ENV) {
-    console.error(
+  if (!process.env.NODE_ENV || !process.env.PORT) {
+    captains.error(
       'ENV variables are missing.',
-      'Verify that you have set them directly or in a .env file.'
+      'Verify that you have set them directly or in a .env file.',
     );
     process.exit(1);
   } else {
-    console.log('Using ENV variables');
+    captains.log('Using ENV variables');
   }
 
-  const express = require('express');
   const app = express();
   const port = process.env.PORT || 8626;
   const www = process.env.WWW || './';
-  const bodyParser = require('body-parser');
-  const routes = require('./routes');
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
 
   app.use(express.static(www));
-  console.log(`serving ${www}`);
+  captains.log(`serving ${www}`);
   app.use('/api', routes);
   app.get('*', (req, res) => {
     res.sendFile(`index.html`, { root: www });
   });
-  app.listen(port, () => console.log(`listening on http://localhost:${port}`));
+  app.listen(port, () => captains.log(`listening on http://localhost:${port}`));
 }
 
 module.exports.start = start;

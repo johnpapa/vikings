@@ -1,8 +1,8 @@
-const models = require('../models');
-const Villain = models.Villain;
-const ReadPreference = require('mongodb').ReadPreference;
+// @ts-check
+const { ReadPreference } = require('mongodb');
+const Villain = require('./villain.model');
 
-// require('./mongo').connect();
+const captains = console;
 
 function getVillains(req, res) {
   const docquery = Villain.find({}).read(ReadPreference.NEAREST);
@@ -15,14 +15,14 @@ function getVillains(req, res) {
 function postVillain(req, res) {
   const originalVillain = {
     name: req.body.name,
-    description: req.body.description
+    description: req.body.description,
   };
   originalVillain.id = `Villain${originalVillain.name}`;
   const villain = new Villain(originalVillain);
-  villain.save(error => {
+  villain.save((error) => {
     if (checkServerError(res, error)) return;
     res.status(201).json(villain);
-    console.log('Villain created successfully!');
+    captains.log('Villain created successfully!');
   });
 }
 
@@ -30,7 +30,7 @@ function putVillain(req, res) {
   const updatedVillain = {
     id: req.params.id,
     name: req.body.name,
-    description: req.body.description
+    description: req.body.description,
   };
 
   Villain.findOneAndUpdate(
@@ -40,42 +40,43 @@ function putVillain(req, res) {
     (error, doc) => {
       if (checkServerError(res, error)) return;
       res.status(200).json(doc);
-      console.log('Villain updated successfully!');
-    }
+      captains.log('Villain updated successfully!');
+    },
   );
 }
 
 function deleteVillain(req, res) {
-  const id = req.params.id;
-  Villain.findOneAndRemove({ id: id })
-    .then(villain => {
+  const { id } = req.params;
+  Villain.findOneAndRemove({ id })
+    .then((villain) => {
       if (!checkFound(res, villain)) return;
       res.status(200).json(villain);
-      console.log('Villain deleted successfully!');
+      captains.log('Villain deleted successfully!');
     })
-    .catch(error => {
-      if (checkServerError(res, error)) return;
-    });
+    .catch(error => checkServerError(res, error));
 }
+
 
 function checkServerError(res, error) {
   if (error) {
     res.status(500).send(error);
     return error;
   }
+  return false;
 }
 
 function checkFound(res, villain) {
   if (!villain) {
     res.status(404).send('Villain not found.');
-    return;
+    return false;
   }
   return villain;
 }
+
 
 module.exports = {
   getVillains,
   postVillain,
   putVillain,
-  deleteVillain
+  deleteVillain,
 };
