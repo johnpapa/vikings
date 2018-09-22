@@ -15,7 +15,7 @@
       <vk-hero-list [heroes]="heroes" [selectedHero]="selectedHero" (deleted)="deleteHero($event)" (selected)="onSelect($event)"></vk-hero-list>
     </div>
   </div>
-  <div class="detail-container open-close-container" [@openClose]="(selectedHero || addingHero)" *ngIf="(selectedHero || addingHero)">
+  <div class="detail-container" [@openClose]="(selectedHero || addingHero)" *ngIf="(selectedHero || addingHero)">
     <vk-hero-detail [hero]="selectedHero" (unselect)="unselect()" (add)="add($event)" (update)="update($event)">
     </vk-hero-detail>
   </div>

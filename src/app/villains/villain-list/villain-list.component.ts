@@ -1,12 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { ModalComponent, Villain } from '../../core';
+import { flyInOutAnimation } from '../../core/animations';
 
 
 @Component({
   selector: 'vk-villain-list',
   templateUrl: './villain-list.component.html',
-  styleUrls: ['./villain-list.component.scss']
+  styleUrls: ['./villain-list.component.scss'],
+  animations: [flyInOutAnimation]
 })
 export class VillainListComponent {
   @Input() villains: Villain[];

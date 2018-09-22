@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
-
 import { Villain } from '../../core';
+import { openCloseAnimation } from '../../core/animations';
 import { VillainService } from '../villain.service';
 
 @Component({
   selector: 'vk-villains',
   templateUrl: './villains.component.html',
-  styleUrls: ['./villains.component.scss']
-})
+  styleUrls: ['./villains.component.scss'],
+  animations: [openCloseAnimation],
+  })
 export class VillainsComponent implements OnInit {
   addingVillain = false;
+
   selectedVillain: Villain;
 
   villains: Villain[];
+
   loading: boolean;
 
   constructor(private villainService: VillainService) {}
@@ -33,9 +36,7 @@ export class VillainsComponent implements OnInit {
     this.villainService
       .deleteVillain(villain)
       .pipe(finalize(() => (this.loading = false)))
-      .subscribe(
-        () => (this.villains = this.villains.filter(h => h.id !== villain.id))
-      );
+      .subscribe(() => (this.villains = this.villains.filter(h => h.id !== villain.id)));
   }
 
   enableAddMode() {
@@ -63,10 +64,7 @@ export class VillainsComponent implements OnInit {
       .updateVillain(villain)
       .pipe(finalize(() => (this.loading = false)))
       .subscribe(
-        () =>
-          (this.villains = this.villains.map(
-            h => (h.id === villain.id ? villain : h)
-          ))
+        () => (this.villains = this.villains.map(h => (h.id === villain.id ? villain : h))),
       );
   }
 
@@ -75,9 +73,7 @@ export class VillainsComponent implements OnInit {
     this.villainService
       .addVillain(villain)
       .pipe(finalize(() => (this.loading = false)))
-      .subscribe(
-        addedvillain => (this.villains = this.villains.concat(addedvillain))
-      );
+      .subscribe(addedvillain => (this.villains = this.villains.concat(addedvillain)));
   }
 
   unselect() {
