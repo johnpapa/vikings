@@ -4,12 +4,13 @@ import {
   group,
   query,
   sequence,
+  state,
   style,
   transition,
   trigger,
 } from '@angular/animations';
 
-export const slideInAnimation = trigger('routeAnimations', [
+export const routeSlideInAnimation = trigger('routeSlide', [
   transition('* => *', [
     style({ position: 'relative' }),
     query(
@@ -27,14 +28,14 @@ export const slideInAnimation = trigger('routeAnimations', [
     query(':enter', [style({ left: '-100%' })], { optional: true }),
     query(':leave', animateChild(), { optional: true }),
     group([
-      query(':leave', [animate('300ms ease-out', style({ left: '100%' }))], { optional: true }),
+      query(':leave', [animate('700ms ease-out', style({ left: '100%' }))], { optional: true }),
       query(':enter', [animate('300ms ease-out', style({ left: '0%' }))], { optional: true }),
     ]),
     query(':enter', animateChild(), { optional: true }),
   ]),
 ]);
 
-export const openCloseAnimation = trigger('openCloseAnimation', [
+export const openCloseAnimation = trigger('openClose', [
   // state('show', style({ opacity: '1', transform: 'scale(1)' })),
   // state('hide', style({ opacity: '0.2', transform: 'scale(0.5)' })),
   transition('void => *', [
@@ -70,4 +71,10 @@ export const openCloseAnimation = trigger('openCloseAnimation', [
       style({ opacity: 0, transform: 'scale(0.5)' }),
     ),
   ]),
+]);
+
+export const flyInOutAnimation = trigger('flyInOut', [
+  state('in', style({ transform: 'translateX(0)' })),
+  transition('void => *', [style({ transform: 'translateX(-100%)' }), animate('250ms ease-out')]),
+  transition('* => void', [animate('250ms ease-out', style({ transform: 'translateX(100%)' }))]),
 ]);

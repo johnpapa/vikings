@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { openCloseAnimation, slideInAnimation } from './core/animations';
+import { openCloseAnimation, routeSlideInAnimation } from './core/animations';
 
 @Component({
   selector: 'vk-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [slideInAnimation, openCloseAnimation],
+  animations: [routeSlideInAnimation, openCloseAnimation],
   })
 export class AppComponent {
   prepareRoute(outlet: RouterOutlet) {

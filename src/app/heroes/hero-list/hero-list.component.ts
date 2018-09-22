@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Hero, ModalComponent } from '../../core';
+import { flyInOutAnimation } from '../../core/animations';
 
 @Component({
   selector: 'vk-hero-list',
   templateUrl: './hero-list.component.html',
-  styleUrls: ['./hero-list.component.scss']
+  styleUrls: ['./hero-list.component.scss'],
+  animations: [flyInOutAnimation]
 })
 export class HeroListComponent {
   @Input() heroes: Hero[];
