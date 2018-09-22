@@ -3,7 +3,7 @@ import {
   animateChild,
   group,
   query,
-  state,
+  sequence,
   style,
   transition,
   trigger,
@@ -34,33 +34,34 @@ export const slideInAnimation = trigger('routeAnimations', [
   ]),
 ]);
 
-
 export const openCloseAnimation = trigger('openCloseAnimation', [
   // state('show', style({ opacity: '1', transform: 'scale(1)' })),
   // state('hide', style({ opacity: '0.2', transform: 'scale(0.5)' })),
   transition('void => *', [
-    // 'From' styles
-    style({
-      opacity: 0.2,
-      transform: 'scale(0.5)',
-    }),
-    animate(
-      '300ms ease-in',
-      // 'To' styles
-      // 1 - Comment this to remove the item's grow...
+    sequence([
+      // 'From' styles
       style({
-        opacity: 1,
-        transform: 'scale(1.1)',
+        opacity: 0.2,
+        transform: 'scale(0.5)',
       }),
-    ),
-    animate(
-      '300ms ease-in',
-      // 'To' styles
-      // 1 - Comment this to remove the item's grow...
-      style({
-        transform: 'scale(1.0)',
-      }),
-    ),
+      animate(
+        '300ms ease-in',
+        // 'To' styles
+        // 1 - Comment this to remove the item's grow...
+        style({
+          opacity: 1,
+          transform: 'scale(1.1)',
+        }),
+      ),
+      animate(
+        '300ms ease-in',
+        // 'To' styles
+        // 1 - Comment this to remove the item's grow...
+        style({
+          transform: 'scale(1.0)',
+        }),
+      ),
+    ]),
   ]),
   transition('* => void', [
     animate(
