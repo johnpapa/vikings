@@ -1,3 +1,4 @@
+// @ts-check
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
@@ -5,12 +6,12 @@ const villainSchema = new Schema(
   {
     id: String,
     name: String,
-    description: String
+    description: String,
   },
   {
     collection: 'villains',
-    read: 'nearest'
-  }
+    read: 'nearest',
+  },
 );
 
 const Villain = mongoose.model('Villain', villainSchema);

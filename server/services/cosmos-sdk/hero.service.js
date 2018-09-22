@@ -1,7 +1,7 @@
-const { client } = require('./db');
+// @ts-check
+const client = require('./db');
 const { databaseDefName, heroContainer } = require('./config');
 
-// async function getHerooooooooes(flag) {}
 const container = client.database(databaseDefName).container(heroContainer);
 const captains = console;
 
@@ -29,7 +29,7 @@ async function getHeroes(req, res) {
 async function postHero(req, res) {
   const hero = {
     name: req.body.name,
-    description: req.body.description
+    description: req.body.description,
   };
   hero.id = `Hero ${hero.name}`;
 
@@ -46,7 +46,7 @@ async function putHero(req, res) {
   const hero = {
     id: req.params.id,
     name: req.body.name,
-    description: req.body.description
+    description: req.body.description,
   };
 
   try {
@@ -74,5 +74,5 @@ module.exports = {
   getHeroes,
   postHero,
   putHero,
-  deleteHero
+  deleteHero,
 };

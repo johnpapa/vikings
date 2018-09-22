@@ -8,7 +8,7 @@ function start() {
   if (!process.env.NODE_ENV) {
     captains.error(
       'ENV variables are missing.',
-      'Verify that you have set them directly or in a .env file.'
+      'Verify that you have set them directly or in a .env file.',
     );
     process.exit(1);
   } else {

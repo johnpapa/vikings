@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'vk-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
-})
-export class ToolbarComponent {
+  styleUrls: ['./toolbar.component.scss'],
+  })
+export class ToolbarComponent implements OnInit {
   labTitle = 'Angular Vikings';
   labState = 'Welcome !';
+  dbName = '';
+
+  constructor(private settingsService: SettingsService) {}
+
+  ngOnInit() {
+    this.settingsService.getSettings().subscribe(settings => (this.dbName = settings.name));
+  }
 }
