@@ -1,9 +1,6 @@
 // @ts-check
 const { ReadPreference } = require('mongodb');
 const Settings = require('./settings.model');
-const { connect } = require('./db');
-
-connect();
 
 function getSettings(req, res) {
   const docquery = Settings.find({}).read(ReadPreference.NEAREST);

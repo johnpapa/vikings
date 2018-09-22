@@ -1,9 +1,14 @@
 const cosmosSDK = require('./cosmos-sdk');
 const mongo = require('./mongo');
+const { connect } = require('./mongo/db');
 
 let useCosmosSDK = false;
 
 const captains = console;
+
+
+connect();
+
 switch (process.env.DATA_OPTION) {
   case 'cloud_cosmos':
     useCosmosSDK = false;

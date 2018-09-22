@@ -1,11 +1,8 @@
 // @ts-check
 const { ReadPreference } = require('mongodb');
 const Villain = require('./villain.model');
-const { connect } = require('./db');
 
 const captains = console;
-
-connect();
 
 function getVillains(req, res) {
   const docquery = Villain.find({}).read(ReadPreference.NEAREST);

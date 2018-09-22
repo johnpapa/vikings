@@ -2,6 +2,9 @@
 
 .env
 
+# test data
+/data
+
 # compiled output
 /dist
 /dist-server
