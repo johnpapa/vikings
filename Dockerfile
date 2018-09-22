@@ -1,11 +1,12 @@
 # Client App
-FROM johnpapa/angular-cli as client-app
+# FROM johnpapa/angular-cli as client-app
+FROM node:8.12-alpine as client-app
 LABEL authors="John Papa"
 WORKDIR /usr/src/app
 COPY ["package.json", "npm-shrinkwrap.json*", "./"]
 RUN npm install --silent
 COPY . .
-RUN ng build --prod
+RUN npx ng build --prod
 
 # Node server
 FROM node:8.12-alpine as node-server
