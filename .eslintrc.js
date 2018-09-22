@@ -1,5 +1,6 @@
 module.exports = {
   extends: ['airbnb-base'],
+  plugins: ['html'],
   rules: {
     'no-use-before-define': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
