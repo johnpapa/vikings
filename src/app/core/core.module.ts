@@ -17,7 +17,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   RouterModule, // because we use <router-outlet> and routerLink
   ],
   declarations: [ToolbarComponent, ModalComponent],
-  exports: [BrowserAnimationsModule, ToolbarComponent],
+  exports: [BrowserAnimationsModule, ToolbarComponent, NgMaterialModule],
   entryComponents: [ModalComponent],
   })
 export class CoreModule {

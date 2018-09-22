@@ -6,10 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core';
+import { HomeComponent } from './home.component';
 
 @NgModule({
   imports: [BrowserModule, CoreModule, HttpClientModule, AppRoutingModule],
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

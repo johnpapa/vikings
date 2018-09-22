@@ -6,10 +6,13 @@
       </a>
       <span class="title">{{labTitle}}</span>
       <span></span>
-      <a mat-button [routerLink]="['/heroes']" routerLinkActive="router-link-active">
+      <a mat-button routerLink="/" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>Home</span>
+      </a>
+      <a mat-button routerLink="/heroes" routerLinkActive="router-link-active">
         <span>Heroes</span>
       </a>
-      <a mat-button [routerLink]="['/villains']" routerLinkActive="router-link-active">
+      <a mat-button routerLink="/villains" routerLinkActive="router-link-active">
         <span>Villains</span>
       </a>
     </div>
