@@ -15,9 +15,7 @@ async function getHeroes(req, res) {
 }
 
 // function getHeroesViaPromises(req, res) {
-//   client
-//     .database(databaseDefName)
-//     .container(heroContainer)
+//   container
 //     .items.readAll()
 //     .toArray()
 //     .then(({ result: heroes }) => {
