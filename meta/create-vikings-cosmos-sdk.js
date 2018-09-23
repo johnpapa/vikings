@@ -11,6 +11,8 @@ const { CosmosClient } = cosmos;
 const client = new CosmosClient({ endpoint, auth: { masterKey } });
 const { heroContainer, villainContainer, settingsContainer } = require('../server/services/cosmos-sdk/config');
 
+process.env.DATA_OPTION = 'cloud_cosmos_sdk';
+
 go()
   .then(() => captains.log('Successfully completed!'))
   .catch(err => captains.error(err));

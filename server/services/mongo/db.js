@@ -13,11 +13,13 @@ const {
  */
 mongoose.Promise = global.Promise;
 
+const captains = console;
 const key = encodeURIComponent(mongoApiKey);
 const mongoOnCosmosUri = `mongodb://${mongoApiAccount}:${key}@${mongoApiAccount}.documents.azure.com:${mongoApiPort}/${mongoDb}?ssl=true`;
 const mongoUri = `mongodb://${localMongo}:27017/vikings-db`;
 let dbUri = '';
 
+captains.log(`process.env.DATA_OPTION=${process.env.DATA_OPTION}`);
 if (process.env.DATA_OPTION === 'local_mongo') {
   dbUri = mongoUri;
 } else {
