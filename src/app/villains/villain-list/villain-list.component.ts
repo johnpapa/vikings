@@ -1,20 +1,28 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatDialogConfig, MatDialog } from '@angular/material';
+import {
+  Component, EventEmitter, Input, Output,
+} from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ModalComponent, Villain } from '../../core';
-import { flyInOutAnimation } from '../../core/animations';
-
+import { flyInOutAnimation, staggerListAnimation } from '../../core/animations';
 
 @Component({
   selector: 'vk-villain-list',
   templateUrl: './villain-list.component.html',
   styleUrls: ['./villain-list.component.scss'],
-  animations: [flyInOutAnimation]
-})
+  animations: [flyInOutAnimation, staggerListAnimation],
+  })
 export class VillainListComponent {
-  @Input() villains: Villain[];
-  @Input() selectedVillain: Villain;
-  @Output() deleted = new EventEmitter<Villain>();
-  @Output() selected = new EventEmitter<Villain>();
+  @Input()
+  villains: Villain[];
+
+  @Input()
+  selectedVillain: Villain;
+
+  @Output()
+  deleted = new EventEmitter<Villain>();
+
+  @Output()
+  selected = new EventEmitter<Villain>();
 
   constructor(public dialog: MatDialog) {}
 
@@ -33,12 +41,12 @@ export class VillainListComponent {
     dialogConfig.width = '250px';
     dialogConfig.data = {
       title: 'Delete Villain',
-      message: `Do you want to delete ${villain.name}`
+      message: `Do you want to delete ${villain.name}`,
     };
 
     const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(deleteIt => {
+    dialogRef.afterClosed().subscribe((deleteIt) => {
       console.log('The dialog was closed');
       if (deleteIt) {
         this.deleted.emit(villain);

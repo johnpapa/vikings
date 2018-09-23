@@ -4,7 +4,7 @@ import {
   group,
   query,
   sequence,
-  state,
+  stagger,
   style,
   transition,
   trigger,
@@ -28,8 +28,8 @@ export const routeSlideInAnimation = trigger('routeSlide', [
     query(':enter', [style({ left: '-100%' })], { optional: true }),
     query(':leave', animateChild(), { optional: true }),
     group([
-      query(':leave', [animate('700ms ease-out', style({ left: '100%' }))], { optional: true }),
-      query(':enter', [animate('300ms ease-out', style({ left: '0%' }))], { optional: true }),
+      query(':leave', [animate('500ms ease-out', style({ left: '100%' }))], { optional: true }),
+      query(':enter', [animate('500ms ease-out', style({ left: '0%' }))], { optional: true }),
     ]),
     query(':enter', animateChild(), { optional: true }),
   ]),
@@ -74,7 +74,25 @@ export const openCloseAnimation = trigger('openClose', [
 ]);
 
 export const flyInOutAnimation = trigger('flyInOut', [
-  state('in', style({ transform: 'translateX(0)' })),
   transition('void => *', [style({ transform: 'translateX(-100%)' }), animate('250ms ease-out')]),
   transition('* => void', [animate('250ms ease-out', style({ transform: 'translateX(100%)' }))]),
+]);
+
+export const staggerListAnimation = trigger('staggerList', [
+  transition('* <=> *', [
+    query(
+      ':enter',
+      [
+        style({ opacity: 0, transform: 'translateY(-15px)' }),
+        stagger(
+          '50ms',
+          animate('550ms ease-out', style({ opacity: 1, transform: 'translateY(0px)' })),
+        ),
+      ],
+      { optional: true },
+    ),
+    query(':leave', animate('50ms', style({ opacity: 0 })), {
+      optional: true,
+    }),
+  ]),
 ]);

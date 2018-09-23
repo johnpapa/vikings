@@ -3,8 +3,8 @@
     <mat-card-title>Villains</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <ul class="villains">
-      <li *ngFor="let villain of villains; trackBy: byId" class="item-container" [@flyInOut]="'in'">
+    <ul class="villains" [@staggerList]="villains">
+      <li *ngFor="let villain of villains; trackBy: byId" class="item-container" [@flyInOut]="villains">
         <button mat-button mat-suffix mat-icon-button color="accent" class="delete-button" aria-label="Delete" (click)="deleteVillain(villain)"
           matTooltip="Delete the villain">
           <mat-icon>delete</mat-icon>

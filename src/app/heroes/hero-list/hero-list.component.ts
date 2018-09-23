@@ -1,19 +1,28 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component, EventEmitter, Input, Output,
+} from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Hero, ModalComponent } from '../../core';
-import { flyInOutAnimation } from '../../core/animations';
+import { flyInOutAnimation, staggerListAnimation } from '../../core/animations';
 
 @Component({
   selector: 'vk-hero-list',
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.scss'],
-  animations: [flyInOutAnimation]
-})
+  animations: [flyInOutAnimation, staggerListAnimation],
+  })
 export class HeroListComponent {
-  @Input() heroes: Hero[];
-  @Input() selectedHero: Hero;
-  @Output() deleted = new EventEmitter<Hero>();
-  @Output() selected = new EventEmitter<Hero>();
+  @Input()
+  heroes: Hero[];
+
+  @Input()
+  selectedHero: Hero;
+
+  @Output()
+  deleted = new EventEmitter<Hero>();
+
+  @Output()
+  selected = new EventEmitter<Hero>();
 
   constructor(public dialog: MatDialog) {}
 
@@ -32,12 +41,12 @@ export class HeroListComponent {
     dialogConfig.width = '250px';
     dialogConfig.data = {
       title: 'Delete Hero',
-      message: `Do you want to delete ${hero.name}`
+      message: `Do you want to delete ${hero.name}`,
     };
 
     const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(deleteIt => {
+    dialogRef.afterClosed().subscribe((deleteIt) => {
       console.log('The dialog was closed');
       if (deleteIt) {
         this.deleted.emit(hero);
