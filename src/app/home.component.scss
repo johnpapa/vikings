@@ -13,4 +13,10 @@
 
 .mat-card {
   @include mat-card-layout;
+
+  .card-image {
+    width: 365px;
+    max-width: 365px;
+    margin-left: 0px;
+  }
 }

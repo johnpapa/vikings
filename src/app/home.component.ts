@@ -1,26 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { openCloseAnimation } from './core/animations';
 
 @Component({
   selector: 'vk-home',
-  template: `
-<div class="content-container">
-  <div class="list-container">
-    <mat-card>
-    <mat-card-header>
-      <mat-card-title>Vikings Home</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-    <p>Heroes and Villains can be viewed, added, edited, deleted.</p>
-    <p>This app uses Angular, Node.js, and Express.js routes, talking to MongoDB using the Mongoose API.</p>
-    </mat-card-content>
-  </mat-card>
-  </div>
-</div>
-  `,
+  templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  animations: [openCloseAnimation],
   })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  show = false;
 
-  ngOnInit() {}
+  showLocal = false;
+
+  showCloudReady = false;
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.show = true;
+    }, 700);
+  }
+
+  tabChange() {
+    this.show = false;
+    setTimeout(() => {
+      this.show = true;
+    }, 10);
+  }
 }

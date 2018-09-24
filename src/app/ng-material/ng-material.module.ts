@@ -9,34 +9,34 @@ import {
   MatSlideToggleModule,
   MatSnackBarModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule,
 } from '@angular/material';
 
 @NgModule({
   imports: [
-    MatButtonModule,
-    MatCardModule,
-    MatDialogModule,
-    MatIconModule,
-    MatInputModule,
-    MatProgressSpinnerModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    MatTooltipModule
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatToolbarModule,
+  MatTooltipModule,
   ],
   exports: [
-    MatButtonModule,
-    MatCardModule,
-    MatDialogModule,
-    MatIconModule,
-    MatInputModule,
-    MatProgressSpinnerModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    MatTooltipModule
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatToolbarModule,
+  MatTooltipModule,
   ],
-  declarations: []
-})
+  declarations: [],
+  })
 export class NgMaterialModule {}
