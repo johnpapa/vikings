@@ -102,7 +102,7 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 
 Create the Docker image that you can `docker push` to a registry. This command uses `docker-compose` to build the image and run the container.
 
-> This image expects environment variables to be set in whichever cloud provider you push to.
+> This image expects environment variables to be set to point to the database provider (e.g. Mongo DB or Cosmos DB)
 
 1. CMD+SHIFT+P `docker: compose up`
 1. Select `docker-compose.debug.yml`
@@ -173,23 +173,39 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
 > If you get errors with `az acr login` try running `az account clear`. Then run `az login` again and follow the prompts. Then try again with `az acr login`
 
-## Cosmos DB (Optional)
-
-This Vikings demo uses an in memory data store by default. If you would like to use Azure's Cosmos DB, a mongo DB API, follow these steps:
+## Cosmos DB - Mongo API
 
 1. Create a [CosmosDB instance](https://aka.ms/jp-cosmos-node)
 
 1. Configure Cosmos DB server settings
 
-   In the `.env` and append the `COSMOSDB` specific setting shown below, but for your specific configuration.
+   In the `.env`, set the `DATA_OPTION` to the appropraite database kind. Then adjust the `MONGO_API` settings shown below, but for your specific configuration.
 
    ```javascript
+   DATA_OPTION=cloud_cosmos
    USE_LIVE_DATA = yes;
    MONGO_API_ACCOUNT = your_cosmos_account;
-   MONGO_API_DB = your_cosmos_db;
-   MONGO_API_KEY = your_cosmos_key;
+   MONGO_API_DB = your_cosmos_db_name;
+   MONGO_API_KEY = your_cosmos_db_key;
    MONGO_API_PORT = 10255;
    ```
+
+## Cosmos DB - SQL API
+
+1. Create a [CosmosDB instance](https://aka.ms/jp-cosmos-node)
+
+1. Configure Cosmos DB server settings
+
+   In the `.env`, set the `DATA_OPTION` to the appropraite database kind. Then adjust the `CORE_API` settings shown below, but for your specific configuration.
+
+   ```javascript
+   DATA_OPTION=cloud_cosmos_sdk
+   USE_LIVE_DATA = yes;
+   CORE_API_KEY=your_cosmos_db_key
+   CORE_API_URL=your_cosmos_db_url
+   ```
+
+> e.g. The url should follow the format https://yourdatabasename.documents.azure.com:443/
 
 ## Problems or Suggestions
 
