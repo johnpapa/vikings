@@ -17,6 +17,15 @@
   .card-image {
     width: 365px;
     max-width: 365px;
+    max-height: 470px;
     margin-left: 0px;
   }
+  mat-card-content {
+    min-height: 110px;
+  }
+}
+
+button.ng-tns-c4-1.mat-raised-button.mat-accent {
+  margin-left: 16px;
+  margin-bottom: 20px;
 }

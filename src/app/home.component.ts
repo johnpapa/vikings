@@ -8,22 +8,8 @@ import { openCloseAnimation } from './core/animations';
   animations: [openCloseAnimation],
   })
 export class HomeComponent implements OnInit {
-  show = false;
-
   showLocal = false;
-
   showCloudReady = false;
 
-  ngOnInit() {
-    setTimeout(() => {
-      this.show = true;
-    }, 700);
-  }
-
-  tabChange() {
-    this.show = false;
-    setTimeout(() => {
-      this.show = true;
-    }, 10);
-  }
+  ngOnInit() {}
 }
