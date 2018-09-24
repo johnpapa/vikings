@@ -43,34 +43,34 @@ Here are all of the slides/code from my presentation at [ngVikings event](https:
 
 1. Configure environment settings
 
-  Create a file with the following name and location `.env` and copy the contents from
-  `.env.example` into it. Replace the values with your specific configuration. Don't worry, this
-  file is in the `.gitignore` so it won't get pushed to github.
+Create a file with the following name and location `.env` and copy the contents from
+`.env.example` into it. Replace the values with your specific configuration. Don't worry, this
+file is in the `.gitignore` so it won't get pushed to github.
 
-  Take care not to include extra spaces or quotes. These values are taken verbatum.
+Take care not to include extra spaces or quotes. These values are taken verbatum.
 
-  ```javascript
-  NODE_ENV=development
-  PORT=8626
-  WWW=./
+```javascript
+NODE_ENV=development
+PORT=8626
+WWW=./
 
-  # Toggle which one of these you want to use
-  #DATA_OPTION=local_mongo
-  #DATA_OPTION=cloud_cosmos
-  DATA_OPTION=cloud_cosmos_sdk
+# Toggle which one of these you want to use
+#DATA_OPTION=local_mongo
+#DATA_OPTION=cloud_cosmos
+DATA_OPTION=cloud_cosmos_sdk
 
-  CORE_API_KEY=your-core-api-key-goes-here
-  CORE_API_URL=https://vikings-core.documents.azure.com:443/
+CORE_API_KEY=your-core-api-key-goes-here
+CORE_API_URL=https://vikings-core.documents.azure.com:443/
 
-  USE_LIVE_DATA=yes
-  MONGO_API_ACCOUNT=vikings
-  MONGO_API_DB=vikings-db
-  MONGO_API_KEY=your-mongo-api-key-goes-here
-  MONGO_API_PORT=10255
+USE_LIVE_DATA=yes
+MONGO_API_ACCOUNT=vikings
+MONGO_API_DB=vikings-db
+MONGO_API_KEY=your-mongo-api-key-goes-here
+MONGO_API_PORT=10255
 
-  # use localhost or your linked docker container
-  LOCAL_MONGO=localhost
-  ```
+# use localhost or your linked docker container
+LOCAL_MONGO=localhost
+```
 
 ## Running the app locally, with live refresh of the client
 
@@ -169,6 +169,8 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
    ```bash
    az acr login --name your-azure-container-registry-name
+
+   e.g. az acr login --name papacr
    ```
 
 > If you get errors with `az acr login` try running `az account clear`. Then run `az login` again and follow the prompts. Then try again with `az acr login`
@@ -182,7 +184,7 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
    In the `.env`, set the `DATA_OPTION` to the appropraite database kind. Then adjust the `MONGO_API` settings shown below, but for your specific configuration.
 
    ```javascript
-   DATA_OPTION=cloud_cosmos
+   DATA_OPTION = cloud_cosmos;
    USE_LIVE_DATA = yes;
    MONGO_API_ACCOUNT = your_cosmos_account;
    MONGO_API_DB = your_cosmos_db_name;
@@ -199,10 +201,10 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
    In the `.env`, set the `DATA_OPTION` to the appropraite database kind. Then adjust the `CORE_API` settings shown below, but for your specific configuration.
 
    ```javascript
-   DATA_OPTION=cloud_cosmos_sdk
+   DATA_OPTION = cloud_cosmos_sdk;
    USE_LIVE_DATA = yes;
-   CORE_API_KEY=your_cosmos_db_key
-   CORE_API_URL=your_cosmos_db_url
+   CORE_API_KEY = your_cosmos_db_key;
+   CORE_API_URL = your_cosmos_db_url;
    ```
 
 > e.g. The url should follow the format https://yourdatabasename.documents.azure.com:443/
