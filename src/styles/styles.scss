@@ -12,3 +12,24 @@ body {
   margin: 0px;
   font-family: Arial;
 }
+
+.bg {
+  background: url('../assets/vikings-bg.png') no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-width: 1280px;
+  min-height: 1080px;
+  margin-top: -60px;
+  width: 100%;
+  height: auto;
+  opacity: 0.4;
+  margin-top: 106px;
+  position: absolute;
+}

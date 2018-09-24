@@ -1,0 +1,32 @@
+@import 'mixin';
+
+.content-container {
+  margin: 4em;
+}
+
+.control-panel {
+  @include control-panel-layout;
+}
+.content-container {
+  @include content-container-layout;
+}
+
+.mat-card {
+  @include mat-card-layout;
+
+  .card-image {
+    width: 365px;
+    max-width: 365px;
+    max-height: 470px;
+    margin-left: 0px;
+  }
+  mat-card-content {
+    min-height: 110px;
+  }
+}
+
+button.mat-raised-button {
+  margin-left: 16px;
+  margin-bottom: 20px;
+  width: 200px;
+}
