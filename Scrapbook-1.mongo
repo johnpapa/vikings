@@ -1,5 +1,8 @@
+db.heroes.count()
 
 db.heroes.find()
+
+db.heroes.findOne({name: 'Aslaug'})
 
 // db.heroes.findOneAndUpdate(
 //     { id: 5 },
@@ -7,6 +10,5 @@ db.heroes.find()
 //     { upsert: true, new: true }
 // )
 
-db.heroes.count()
 
 // db.heroes.findOneAndDelete({id: 7})
