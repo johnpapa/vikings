@@ -1,8 +1,19 @@
+/**
+Tips for executing commands
+
+Execute one line
+  CMD ""
+
+Excute all
+  CMD :
+
+ */
+
 db.heroes.count()
 
 db.heroes.find()
 
-db.heroes.findOne({name: 'Aslaug'})
+db.heroes.findOne({name: 'Bjorn Ironside'})
 
 // db.heroes.findOneAndUpdate(
 //     { id: 5 },
