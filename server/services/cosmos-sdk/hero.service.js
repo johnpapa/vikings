@@ -85,15 +85,15 @@ async function queryHeroesNyName(req, res) {
   }
 }
 
-function getHeroesViaPromises(req, res) {
-  container
-    .items.readAll()
-    .toArray()
-    .then(({ result: heroes }) => {
-      res.status(200).json(heroes);
-    })
-    .catch(error => res.status(500).send(error));
-}
+// function getHeroesViaPromises(req, res) {
+//   container
+//     .items.readAll()
+//     .toArray()
+//     .then(({ result: heroes }) => {
+//       res.status(200).json(heroes);
+//     })
+//     .catch(error => res.status(500).send(error));
+// }
 
 module.exports = {
   getHeroes,
