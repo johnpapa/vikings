@@ -106,11 +106,11 @@ LOCAL_MONGO=localhost
 
 > This option requires Mongo running locally or in a container via localhost
 
-   ```bash
-   # e.g. for mongo accessible on localhost
-   DATA_OPTION=local_mongo
-   LOCAL_MONGO=localhost
-   ```
+```bash
+# e.g. for mongo accessible on localhost
+DATA_OPTION=local_mongo
+LOCAL_MONGO=localhost
+```
 
 1. Build the Angular app and launch the node server
 
@@ -266,6 +266,10 @@ Free Azure Trial - <https://aka.ms/jp-free>
    ```
 
 > e.g. The url should follow the format <https://yourdatabasename.documents.azure.com:443/>
+
+## Resetting Your Database
+
+There are scripts in the `/meta` folder that will help you clean and repopulate the various databases uing different APIs.
 
 ## Problems or Suggestions
 
