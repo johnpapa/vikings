@@ -265,7 +265,7 @@ Free Azure Trial - <https://aka.ms/jp-free>
    CORE_API_URL = your_cosmos_db_url;
    ```
 
-> e.g. The url should follow the format https://yourdatabasename.documents.azure.com:443/
+> e.g. The url should follow the format <https://yourdatabasename.documents.azure.com:443/>
 
 ## Problems or Suggestions
 
