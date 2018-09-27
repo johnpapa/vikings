@@ -32,14 +32,16 @@ function connectWithRetry() {
     return mongoose.connect(
       dbUri,
       { useNewUrlParser: true },
-    ).then(() => {
-      console.log('MongoDB is connected');
-    }).catch((err) => {
+    // ).then(() => {
+    //   console.log('MongoDB is connected');
+    //   return true;
+    // }
+    ).catch((err) => {
       console.log('MongoDB connection unsuccessful, retry after 5 seconds.', err);
       setTimeout(connectWithRetry, 5000);
     });
   }
-  return null;
+  return false;
 }
 
 function connect() {

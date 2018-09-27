@@ -2,6 +2,8 @@
 require('dotenv').config(); // eslint-disable-line
 
 const cosmos = require('@azure/cosmos');
+
+const exit = require('./exit');
 const { databaseDefName, endpoint, masterKey } = require('../server/services/cosmos-sdk/config');
 const heroes = require('./heroes');
 const villains = require('./villains');
@@ -14,8 +16,9 @@ const { heroContainer, villainContainer, settingsContainer } = require('../serve
 process.env.DATA_OPTION = 'cloud_cosmos_sdk';
 
 go()
-  .then(() => captains.log('Successfully completed!'))
-  .catch(err => captains.error(err));
+  .then(() => { exit(`Completed successfully`); })
+  .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`); });
+
 
 async function go() {
   // Delete the database
