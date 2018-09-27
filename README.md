@@ -18,7 +18,6 @@ You can also try them in Docker containers or running the Node.js app locally.
 
 Here are all of the slides/code from my presentation at [ngVikings event](https://twitter.com/ngvikingsconf) this week!
 
-- Slides: <http://slides.com/johnpapa/vikings2018>
 - Code: <https://github.com/johnpapa/vikings>
 - Angular extensions: <https://aka.ms/ng-essentials>
 - Node extensions: <https://aka.ms/vsc-node>
@@ -82,6 +81,8 @@ LOCAL_MONGO=localhost
 
 ## Running the app locally, with live refresh of the client
 
+> This option requires Mongo running locally or in a container via localhost
+
 1. Set the appropriate `.env` file settings
 
    ```bash
@@ -102,6 +103,8 @@ LOCAL_MONGO=localhost
 ## Running the app locally serving the client app
 
 1. Set the appropriate `.env` file settings
+
+> This option requires Mongo running locally or in a container via localhost
 
    ```bash
    # e.g. for mongo accessible on localhost
