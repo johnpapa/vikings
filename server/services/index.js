@@ -5,7 +5,6 @@ const { connect } = require('./mongo/db');
 let useCosmosSDK = false;
 
 const captains = console;
-console.log('hello');
 
 connect();
 
