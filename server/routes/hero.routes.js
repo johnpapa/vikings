@@ -20,4 +20,10 @@ router.delete('/hero/:id', (req, res) => {
   heroService.deleteHero(req, res);
 });
 
+// TODO: example of SQL query
+// Learn more here: https://www.documentdb.com/sql/demo
+// router.get('/hero/querybyname/:name', (req, res) => {
+//   heroService.queryHeroesNyName(req, res);
+// });
+
 module.exports = router;

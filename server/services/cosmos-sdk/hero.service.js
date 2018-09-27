@@ -14,16 +14,6 @@ async function getHeroes(req, res) {
   }
 }
 
-// function getHeroesViaPromises(req, res) {
-//   container
-//     .items.readAll()
-//     .toArray()
-//     .then(({ result: heroes }) => {
-//       res.status(200).json(heroes);
-//     })
-//     .catch(error => res.status(500).send(error));
-// }
-
 async function postHero(req, res) {
   const hero = {
     name: req.body.name,
@@ -68,9 +58,47 @@ async function deleteHero(req, res) {
   }
 }
 
+async function queryHeroesNyName(req, res) {
+  console.log(`Querying container:\n${heroContainer}`);
+
+  const querySpec = {
+    query: 'SELECT h.id, h.name, h.description FROM heroes h WHERE h.name = @value',
+    parameters: [
+      {
+        name: '@value',
+        value: req.params.name, // e.g. 'api/hero/querybyname/Aslaug',
+      },
+    ],
+  };
+
+  captains.log(querySpec);
+
+  try {
+    const { result: heroes } = await container.items.query(querySpec).toArray();
+    heroes.forEach((queryResult) => {
+      const resultString = JSON.stringify(queryResult);
+      captains.log(`Query returned ${resultString}\n`);
+    });
+    res.status(200).json(heroes);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
+
+function getHeroesViaPromises(req, res) {
+  container
+    .items.readAll()
+    .toArray()
+    .then(({ result: heroes }) => {
+      res.status(200).json(heroes);
+    })
+    .catch(error => res.status(500).send(error));
+}
+
 module.exports = {
   getHeroes,
   postHero,
   putHero,
   deleteHero,
+  queryHeroesNyName,
 };

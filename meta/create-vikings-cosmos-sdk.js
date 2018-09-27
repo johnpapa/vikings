@@ -41,7 +41,8 @@ async function bulkCreate(database, containerDef, items) {
   // Create the container
   const containerDefinition = {
     id: containerDef,
-    indexingPolicy: { automatic: false }, // turn of indexes
+    indexingPolicy: { automatic: true }, // turn on indexes (default)
+    // indexingPolicy: { automatic: false }, // turn of indexes
   };
   const { container } = await database.containers.createIfNotExists(
     containerDefinition,
