@@ -4,7 +4,15 @@ Demo App for Vikings - 2018
 
 by [John Papa](http://twitter.com/john_papa)
 
-Angular, Node, Docker, Azure!
+Angular, Node, Docker, Azure, Cosmos DB/Mongo DB!
+
+Try using 1 of these variations of databases and Node SDKs:
+
+1. Nodejs -> Express -> Mongoose -> Mongo DB
+1. Nodejs -> Express -> Mongoose -> Cosmos DB (using Mongo API)
+1. Nodejs -> Express -> Cosmos SQL SDK -> Cosmos DB (using SQL API)
+
+You can also try them in Docker containers or running the Node.js app locally.
 
 ## Links
 
@@ -187,15 +195,15 @@ This contains:
 
 1. Azure account
 
-  Free Azure Trial - <https://aka.ms/jp-free>
+Free Azure Trial - <https://aka.ms/jp-free>
 
 1. Install the Azure CLI
 
-  <https://aka.ms/jp-az>
+<https://aka.ms/jp-az>
 
 1. Azure/Node/Docker extensions for VS Code
 
-  <https://aka.ms/vsc-node>
+<https://aka.ms/vsc-node>
 
 ### Deploy Docker Image to Azure
 
@@ -260,8 +268,4 @@ This contains:
 
 [Open an issue here](https://github.com/johnpapa/vikings/issues)
 
-
-
-
 Create the Docker image that you can `docker push` to a registry. This command uses `docker-compose` to build the image and run the container.
-
