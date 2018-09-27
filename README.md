@@ -68,11 +68,19 @@ MONGO_API_DB=vikings-db
 MONGO_API_KEY=your-mongo-api-key-goes-here
 MONGO_API_PORT=10255
 
-# use localhost or your linked docker container
+# use localhost or your linked docker container (e.g. mongocontainer)
 LOCAL_MONGO=localhost
 ```
 
 ## Running the app locally, with live refresh of the client
+
+1. Set the appropriate `.env` file settings
+
+   ```bash
+   # e.g. for mongo accessible on localhost
+   DATA_OPTION=local_mongo
+   LOCAL_MONGO=localhost
+   ```
 
 1. Build the Angular app and launch the node server
 
@@ -84,6 +92,14 @@ LOCAL_MONGO=localhost
 1. Open the browser to <http://localhost:8626>
 
 ## Running the app locally serving the client app
+
+1. Set the appropriate `.env` file settings
+
+   ```bash
+   # e.g. for mongo accessible on localhost
+   DATA_OPTION=local_mongo
+   LOCAL_MONGO=localhost
+   ```
 
 1. Build the Angular app and launch the node server
 
@@ -98,41 +114,72 @@ LOCAL_MONGO=localhost
 
 - Install and run [Docker](https://www.docker.com/community-edition)
 
-### Docker Compose
+There are various flavors of the app we can build. See the appropriate sections below.
 
-Create the Docker image that you can `docker push` to a registry. This command uses `docker-compose` to build the image and run the container.
+### Docker Compose with Mongo DB
+
+This contains:
+
+- Mongoose SDK
+- Mongo DB in a container with mounted data volume
 
 > This image expects environment variables to be set to point to the database provider (e.g. Mongo DB or Cosmos DB)
 
+    ```bash
+    # e.g. Mongo DB in a container
+    DATA_OPTION=local_mongo
+    USE_LIVE_DATA=yes
+    MONGO_API_DB=vikings-db
+    # use localhost or your linked docker container (mongocontainer)
+    LOCAL_MONGO=mongocontainer
+    ```
+
+1. CMD+SHIFT+P `docker: compose up`
+1. Select `docker-compose.debug.mongodb.yml`
+1. Browse to <http://localhost:7626>
+
+### Docker Compose with Cosmos DB (Mongo API)
+
+This contains:
+
+- Mongoose SDK
+- Cosmos DB (Mongo API)
+
+> This image expects environment variables to be set to point to the database provider (e.g. Mongo DB or Cosmos DB)
+
+    ```bash
+    # e.g. Mongo DB in a container
+    DATA_OPTION=cloud_cosmos
+    USE_LIVE_DATA=yes
+    MONGO_API_ACCOUNT=vikings
+    MONGO_API_DB=vikings-db
+    MONGO_API_KEY=your-key
+    MONGO_API_PORT=10255
+    ```
+
 1. CMD+SHIFT+P `docker: compose up`
 1. Select `docker-compose.debug.yml`
 1. Browse to <http://localhost:7626>
 
-> Do you prefer terminal commands? You can run the docker commands from the terminal
->
-> ```bash
-> npm run docker-up
-> open http://localhost:7626
-> ```
+### Docker Compose with Cosmos DB (SQL API)
 
-### Docker Compose with Debugging
+This contains:
 
-Create the Docker image and run it locally. This commands uses `docker-compose` to build the image and run the container.
+- Cosmos SQL SDK
+- Cosmos DB (SQL API)
 
-This uses your `.env` settings and opens port `9229` for debugging.
+> This image expects environment variables to be set to point to the database provider (e.g. Mongo DB or Cosmos DB)
+
+    ```bash
+    # e.g. Mongo DB in a container
+    DATA_OPTION=cloud_cosmos_sdk
+    CORE_API_KEY=your-key
+    CORE_API_URL=https://vikings-core.documents.azure.com:443/
+    ```
 
 1. CMD+SHIFT+P `docker: compose up`
 1. Select `docker-compose.debug.yml`
 1. Browse to <http://localhost:7626>
-
-Open VS Code, launch the `Docker: Attach to Node` debugging profile
-
-> Do you prefer terminal commands? You can run the docker commands from the terminal
->
-> ```bash
-> npm run docker-debug
-> open http://localhost:7626
-> ```
 
 ## Deploy to Azure
 
@@ -140,15 +187,15 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 
 1. Azure account
 
-   Free Azure Trial - <https://aka.ms/jp-free>
+  Free Azure Trial - <https://aka.ms/jp-free>
 
 1. Install the Azure CLI
 
-   link
+  <https://aka.ms/jp-az>
 
 1. Azure/Node/Docker extensions for VS Code
 
-   Extensions: <https://aka.ms/vsc-node>
+  <https://aka.ms/vsc-node>
 
 ### Deploy Docker Image to Azure
 
@@ -157,7 +204,7 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 1. Go to the Docker extension in the sidebar and expand `Images`
 1. Right click the image and select `tag`
 1. Prefix the tag with your container registry name
-   e.g Azure container registry `papacr.azurecr.io/vikings:latest`
+   e.g Azure container registry `papacr.azurecr.io/johnpapa/vikings:latest`
 1. Right click the image and select `push`
 1. Expand `Registries / Azure` in the Docker extension in the sidebar
 1. Right click the image you pushed and select `deploy to azure app service`
@@ -212,3 +259,9 @@ Open VS Code, launch the `Docker: Attach to Node` debugging profile
 ## Problems or Suggestions
 
 [Open an issue here](https://github.com/johnpapa/vikings/issues)
+
+
+
+
+Create the Docker image that you can `docker push` to a registry. This command uses `docker-compose` to build the image and run the container.
+
