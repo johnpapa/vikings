@@ -7,17 +7,16 @@
 </div>
 <div class="content-container">
   <div class="list-container">
-    <div *ngIf="villains">
+    <div *ngIf="villains$ | async as villains">
       <!-- <mat-spinner *ngIf="loading;else villainList" mode="indeterminate" color="accent"></mat-spinner>
       <ng-template #villainList>
         <vk-villain-list [villains]="villains" [selectedVillain]="selectedVillain" (deleted)="deleteVillain($event)" (selected)="onSelect($event)"></vk-villain-list>
-        </ng-template> -->
-      <vk-villain-list [villains]="villains" [selectedVillain]="selectedVillain" (deleted)="deleteVillain($event)"
-        (selected)="onSelect($event)"></vk-villain-list>
+      </ng-template> -->
+      <vk-villain-list [villains]="villains" [selectedVillain]="selected" (deleted)="delete($event)" (selected)="select($event)"></vk-villain-list>
     </div>
   </div>
-  <div class="detail-container" [@openClose]="(selectedVillain || addingVillain)" *ngIf="(selectedVillain || addingVillain)">
-    <vk-villain-detail [villain]="selectedVillain" (unselect)="unselect()" (add)="add($event)" (update)="update($event)">
+  <div class="detail-container" [@openClose]="selected" *ngIf="selected">
+    <vk-villain-detail [villain]="selected" (unselect)="close()" (add)="add($event)" (update)="update($event)">
     </vk-villain-detail>
   </div>
 </div>

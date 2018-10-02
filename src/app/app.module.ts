@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core';
 import { HomeComponent } from './home/home.component';
+import { AppStoreModule } from './store/app-store.module';
 
 @NgModule({
-  imports: [BrowserModule, CoreModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, CoreModule, HttpClientModule, AppRoutingModule, AppStoreModule],
   declarations: [AppComponent, HomeComponent],
   bootstrap: [AppComponent]
 })
