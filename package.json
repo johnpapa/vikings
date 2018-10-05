@@ -46,7 +46,7 @@
     "hammerjs": "^2.0.8",
     "mongodb": "^3.1.6",
     "mongoose": "^5.2.17",
-    "ngrx-data": "^6.1.0-alpha.3",
+    "ngrx-data": "^6.1.0-alpha.4",
     "rxjs": "6.3.2",
     "zone.js": "^0.8.26"
   },
