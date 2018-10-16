@@ -17,3 +17,14 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: "$(System.DefaultWorkingDirectory)/dist"
+    contents: |
+      **/*
+    targetFolder: "$(Build.ArtifactStagingDirectory)"
+    overWrite: true
+  displayName: "Copying built static files"
+
+- task: PublishBuildArtifacts@1
