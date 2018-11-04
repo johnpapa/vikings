@@ -1,6 +1,4 @@
-import {
-  Component, EventEmitter, Input, Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Hero, ModalComponent } from '../../core';
 import { flyInOutAnimation, staggerListAnimation } from '../../core/animations';
@@ -12,17 +10,10 @@ import { flyInOutAnimation, staggerListAnimation } from '../../core/animations';
   animations: [flyInOutAnimation, staggerListAnimation],
   })
 export class HeroListComponent {
-  @Input()
-  heroes: Hero[];
-
-  @Input()
-  selectedHero: Hero;
-
-  @Output()
-  deleted = new EventEmitter<Hero>();
-
-  @Output()
-  selected = new EventEmitter<Hero>();
+  @Input() heroes: Hero[];
+  @Input()  selectedHero: Hero;
+  @Output()  deleted = new EventEmitter<Hero>();
+  @Output()  selected = new EventEmitter<Hero>();
 
   constructor(public dialog: MatDialog) {}
 
