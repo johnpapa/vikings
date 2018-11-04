@@ -8,6 +8,7 @@ const captains = console;
 async function getHeroes(req, res) {
   try {
     const { result: heroes } = await container.items.readAll().toArray();
+    captains.log(`${heroes.length} Heroes retrieved successfully!`);
     res.status(200).json(heroes);
   } catch (error) {
     res.status(500).send(error);
@@ -24,7 +25,7 @@ async function postHero(req, res) {
   try {
     const { body } = await container.items.create(hero);
     res.status(201).json(body);
-    captains.log('Hero created successfully!');
+    captains.log(`Hero ${hero.name} created successfully!`);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -40,7 +41,7 @@ async function putHero(req, res) {
   try {
     const { body } = await container.items.upsert(hero);
     res.status(200).json(body);
-    captains.log('Hero updated successfully!');
+    captains.log(`Hero ${hero.name} updated successfully!`);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -52,7 +53,7 @@ async function deleteHero(req, res) {
   try {
     const { body } = await container.item(id).delete();
     res.status(200).json(body);
-    captains.log('Hero deleted successfully!');
+    captains.log(`Hero ${id} deleted successfully!`);
   } catch (error) {
     res.status(500).send(error);
   }

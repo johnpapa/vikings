@@ -9,7 +9,7 @@ import { SettingsService } from '../settings.service';
 export class ToolbarComponent implements OnInit {
   labTitle = 'Vikings';
 
-  labState = 'Welcome Ignite 2018!';
+  labState = 'Welcome AngularConnect 2018!';
 
   dbName = '';
 
