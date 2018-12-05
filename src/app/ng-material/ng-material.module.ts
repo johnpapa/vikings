@@ -12,31 +12,22 @@ import {
   MatTooltipModule,
 } from '@angular/material';
 
+const myModules = [
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatToolbarModule,
+  MatTooltipModule,
+];
+
 @NgModule({
-  imports: [
-  MatButtonModule,
-  MatCardModule,
-  MatDialogModule,
-  MatIconModule,
-  MatInputModule,
-  MatProgressSpinnerModule,
-  MatSlideToggleModule,
-  MatSnackBarModule,
-  MatToolbarModule,
-  MatTooltipModule,
-  ],
-  exports: [
-  MatButtonModule,
-  MatCardModule,
-  MatDialogModule,
-  MatIconModule,
-  MatInputModule,
-  MatProgressSpinnerModule,
-  MatSlideToggleModule,
-  MatSnackBarModule,
-  MatToolbarModule,
-  MatTooltipModule,
-  ],
+  imports: [myModules],
+  exports: [myModules],
   declarations: [],
   })
 export class NgMaterialModule {}
