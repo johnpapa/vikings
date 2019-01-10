@@ -7,7 +7,7 @@
     {
       "type": "chrome",
       "request": "launch",
-      "name": "Launch Chrome",
+      "name": "Launch Angular in Chrome",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}"
     },
@@ -29,7 +29,7 @@
       "request": "launch",
       "name": "Launch via NPM",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "debug"],
+      "runtimeArgs": ["run-script", "local-proxy-debug"],
       "port": 9229
     },
     {

@@ -14,7 +14,7 @@
     "docker-up": "docker-compose up -d --build",
     "docker-up-debug": "docker-compose -f docker-compose.debug.yml up -d --build",
     "docker-down": "docker-compose down",
-    "local-proxy": "concurrently \"npm run local\" \"ng serve --proxy-config proxy.conf.json --open\"",
+    "local-proxy": "concurrently \"npm run local\" \"ng serve --proxy-config proxy.conf.json\"",
     "local-proxy-debug": "concurrently \"npm run debug\" \"ng serve --proxy-config proxy.conf.json --open\"",
     "start": "node server.js",
     "start_debug": "node --inspect=0.0.0.0:9229 server.js",
