@@ -282,9 +282,8 @@ Set the `auto-attach` in the settings, then run node server with the inpsector p
 1-time setup for auto-attach:
 
 1. `CMD+,`
-2. type `debug`
-3. select `node`
-4. select `auto-attach`
+2. type `auto attach`
+3. set `auto-attach` to `on`
 
 Now just run your scripts
 
@@ -317,7 +316,7 @@ Debug whichever file you have open and in focus.
 ### Debugging Angular in VS Code
 
 1. Run the app, without debugging node
-  `npm run local-proxy`
+   `npm run local-proxy`
 2. Go to the debugger panel
 3. `Launch Angular in Chrome`
 
