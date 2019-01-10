@@ -1,5 +1,5 @@
 import {
-  Component, EventEmitter, Input, Output,
+  Component, EventEmitter, Input, Output, ChangeDetectionStrategy,
 } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ModalComponent, Villain } from '../../core';
@@ -10,19 +10,13 @@ import { flyInOutAnimation, staggerListAnimation } from '../../core/animations';
   templateUrl: './villain-list.component.html',
   styleUrls: ['./villain-list.component.scss'],
   animations: [flyInOutAnimation, staggerListAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
   })
 export class VillainListComponent {
-  @Input()
-  villains: Villain[];
-
-  @Input()
-  selectedVillain: Villain;
-
-  @Output()
-  deleted = new EventEmitter<Villain>();
-
-  @Output()
-  selected = new EventEmitter<Villain>();
+  @Input() villains: Villain[];
+  @Input() selectedVillain: Villain;
+  @Output() deleted = new EventEmitter<Villain>();
+  @Output() selected = new EventEmitter<Villain>();
 
   constructor(public dialog: MatDialog) {}
 

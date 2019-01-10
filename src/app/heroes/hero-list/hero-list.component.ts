@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component, EventEmitter, Input, Output, ChangeDetectionStrategy,
+} from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Hero, ModalComponent } from '../../core';
 import { flyInOutAnimation, staggerListAnimation } from '../../core/animations';
@@ -8,12 +10,13 @@ import { flyInOutAnimation, staggerListAnimation } from '../../core/animations';
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.scss'],
   animations: [flyInOutAnimation, staggerListAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   })
 export class HeroListComponent {
   @Input() heroes: Hero[];
-  @Input()  selectedHero: Hero;
-  @Output()  deleted = new EventEmitter<Hero>();
-  @Output()  selected = new EventEmitter<Hero>();
+  @Input() selectedHero: Hero;
+  @Output() deleted = new EventEmitter<Hero>();
+  @Output() selected = new EventEmitter<Hero>();
 
   constructor(public dialog: MatDialog) {}
 
