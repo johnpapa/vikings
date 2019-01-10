@@ -6,7 +6,8 @@ import {
   OnChanges,
   Output,
   ViewChild,
-  SimpleChanges
+  SimpleChanges,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import { Villain } from '../../core';
@@ -15,7 +16,8 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'vk-villain-detail',
   templateUrl: './villain-detail.component.html',
-  styleUrls: ['./villain-detail.component.scss']
+  styleUrls: ['./villain-detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VillainDetailComponent implements OnChanges {
   @Input() villain: Villain;

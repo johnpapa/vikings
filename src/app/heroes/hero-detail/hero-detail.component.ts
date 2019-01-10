@@ -6,7 +6,8 @@ import {
   OnChanges,
   Output,
   ViewChild,
-  SimpleChanges
+  SimpleChanges,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { Hero } from '../../core';
@@ -14,17 +15,18 @@ import { Hero } from '../../core';
 @Component({
   selector: 'vk-hero-detail',
   templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.scss']
-})
+  styleUrls: ['./hero-detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  })
 export class HeroDetailComponent implements OnChanges {
   @Input() hero: Hero;
   @Output() unselect = new EventEmitter<string>();
   @Output() add = new EventEmitter<Hero>();
   @Output() update = new EventEmitter<Hero>();
-
   @ViewChild('name') nameElement: ElementRef;
 
   addMode = false;
+
   editingHero: Hero;
 
   ngOnChanges(changes: SimpleChanges) {
