@@ -5,6 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
+      // Debug the node server directly
       "type": "node",
       "request": "launch",
       "name": "Launch server.js",
@@ -16,6 +17,7 @@
       "args": ["-r dotenv/config", "--inspect"]
     },
     {
+      // Debug the node server via npm scripts
       "type": "node",
       "request": "launch",
       "name": "Launch via NPM",
@@ -24,6 +26,7 @@
       "port": 9229
     },
     {
+      // Debug the attached docker node server
       "type": "node",
       "request": "attach",
       "name": "Docker: Attach to Node",
@@ -34,6 +37,7 @@
       "protocol": "inspector"
     },
     {
+      // Debug whichever file is open and focused
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
