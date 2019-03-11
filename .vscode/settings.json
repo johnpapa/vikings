@@ -1,6 +1,6 @@
 {
   "docker.defaultRegistryPath": "papacr.azurecr.io/johnpapa",
   "workbench.colorCustomizations": {
-    "activityBar.border": "#fbff24"
+    "activityBar.border": "#ffff00"
   }
 }
