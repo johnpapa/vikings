@@ -1,5 +1,4 @@
 # Client App
-# FROM johnpapa/angular-cli as client-app
 FROM node:10.15-alpine as client-app
 LABEL authors="John Papa"
 WORKDIR /usr/src/app
