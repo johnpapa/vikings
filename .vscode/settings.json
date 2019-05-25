@@ -1,3 +1,16 @@
 {
-  "docker.defaultRegistryPath": "papacr.azurecr.io/johnpapa"
+  "docker.defaultRegistryPath": "papacr.azurecr.io/johnpapa",
+  "appService.zipIgnorePattern": [
+    ".vscode{,/**}"
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#0c7bb1",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#f788d2",
+    "activityBarBadge.foreground": "#15202b",
+    "statusBar.background": "#095a81",
+    "statusBarItem.hoverBackground": "#0c7bb1",
+    "statusBar.foreground": "#e7e7e7"
+  }
 }
