@@ -228,7 +228,7 @@ Free Azure Trial - <https://aka.ms/jp-free>
    ```bash
    az acr login --name your-azure-container-registry-name
 
-   e.g. az acr login --name papacr
+   # e.g. az acr login --name papacr
    ```
 
 > If you get errors with `az acr login` try running `az account clear`. Then run `az login` again and follow the prompts. Then try again with `az acr login`
