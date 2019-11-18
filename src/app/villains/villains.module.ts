@@ -8,8 +8,8 @@ import { VillainsRoutingModule } from './villains-routing.module';
 import { VillainsComponent } from './villains/villains.component';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, NgMaterialModule, VillainsRoutingModule],
+  imports: [CommonModule, SharedModule, , VillainsRoutingModule],
   exports: [VillainsComponent, VillainDetailComponent],
-  declarations: [VillainsComponent, VillainDetailComponent, VillainListComponent],
-  })
+  declarations: [VillainsComponent, VillainDetailComponent, VillainListComponent]
+})
 export class VillainsModule {}

@@ -11,12 +11,12 @@ const routes: Routes = [
   },
   {
     path: 'heroes',
-    loadChildren: 'app/heroes/heroes.module#HeroesModule',
+    loadChildren: () => import('app/heroes/heroes.module').then(m => m.HeroesModule),
     data: { animation: 'HeroesPage' },
   },
   {
     path: 'villains',
-    loadChildren: 'app/villains/villains.module#VillainsModule',
+    loadChildren: () => import('app/villains/villains.module').then(m => m.VillainsModule),
     data: { animation: 'VillainsPage' },
   },
 ];
