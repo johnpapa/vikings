@@ -44,17 +44,17 @@
     "mongoose": "^5.4.11",
     "rxjs": "6.5.2",
     "tslib": "^1.9.0",
-    "zone.js": "^0.8.29"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.800.2",
+    "@angular-devkit/build-angular": "~0.800.0",
     "@angular/cli": "8.0.2",
     "@angular/compiler-cli": "8.0.0",
     "@angular/language-service": "8.0.0",
     "@types/jasmine": "^3.3.8",
     "@types/jasminewd2": "~2.0.5",
     "@types/node": "^10.12.25",
-    "codelyzer": "^4.5.0",
+    "codelyzer": "^5.0.1",
     "concurrently": "^4.0.1",
     "dotenv": "^6.1.0",
     "eslint": "^5.13.0",
