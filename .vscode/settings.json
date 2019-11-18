@@ -1,17 +1,23 @@
 {
   "docker.defaultRegistryPath": "papacr.azurecr.io/johnpapa",
   "workbench.colorCustomizations": {
-    "activityBar.background": "#d04649",
+    "activityBar.background": "#d9197a",
+    "activityBar.activeBorder": "#70c817",
     "activityBar.foreground": "#e7e7e7",
     "activityBar.inactiveForeground": "#e7e7e799",
-    "activityBarBadge.background": "#37cb34",
+    "activityBarBadge.background": "#70c817",
     "activityBarBadge.foreground": "#15202b",
-    "titleBar.activeBackground": "#b52e31",
-    "titleBar.inactiveBackground": "#b52e3199",
+    "titleBar.activeBackground": "#ab1460",
+    "titleBar.inactiveBackground": "#ab146099",
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveForeground": "#e7e7e799",
-    "statusBar.background": "#b52e31",
-    "statusBarItem.hoverBackground": "#d04649",
-    "statusBar.foreground": "#e7e7e7"
-  }
+    "statusBar.background": "#ab1460",
+    "statusBarItem.hoverBackground": "#d9197a",
+    "statusBar.foreground": "#e7e7e7",
+    "panel.border": "#d9197a",
+    "sideBar.border": "#d9197a",
+    "editorGroup.border": "#d9197a",
+    "tab.activeBorder": "#d9197a"
+  },
+  "peacock.color": "ab1460"
 }
