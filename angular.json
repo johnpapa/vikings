@@ -26,7 +26,12 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "stylePreprocessorOptions": { "includePaths": ["src/styles"] },
+            "styles": [
+              "src/styles/theme.scss",
+              "src/styles/mixin.scss",
+              "src/styles/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -86,7 +91,12 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles/theme.scss",
+              "src/styles/mixin.scss",
+              "src/styles/styles.scss"
+            ],
+
             "scripts": []
           }
         },
