@@ -7,22 +7,24 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    data: { animation: 'HomePage' },
+    data: { animation: 'HomePage' }
   },
   {
     path: 'heroes',
-    loadChildren: () => import('app/heroes/heroes.module').then(m => m.HeroesModule),
-    data: { animation: 'HeroesPage' },
+    loadChildren: () =>
+      import('./heroes/heroes.module').then(m => m.HeroesModule),
+    data: { animation: 'HeroesPage' }
   },
   {
     path: 'villains',
-    loadChildren: () => import('app/villains/villains.module').then(m => m.VillainsModule),
-    data: { animation: 'VillainsPage' },
-  },
+    loadChildren: () =>
+      import('./villains/villains.module').then(m => m.VillainsModule),
+    // data: { animation: 'VillainsPage' }
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  })
+  exports: [RouterModule]
+})
 export class AppRoutingModule {}
