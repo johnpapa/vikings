@@ -47,14 +47,16 @@
     "mongoose": "^5.8.6"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.22",
-    "@angular/cli": "~8.3.22",
+    "@angular-devkit/build-angular": "^0.803.24",
+    "@angular/cli": "~8.3.24",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "concurrently": "^5.0.2",
+    "dotenv": "^8.2.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -63,12 +65,10 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
+    "source-map-explorer": "^1.8.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3",
-    "concurrently": "^5.0.2",
-    "dotenv": "^8.2.0",
-    "source-map-explorer": "^1.8.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-visualizer-plugin": "^0.1.11"
   }
