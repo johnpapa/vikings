@@ -7,24 +7,26 @@ import { SharedModule } from '../shared/shared.module';
 import { ModalComponent } from './modal/modal.component';
 import { throwIfAlreadyLoaded } from './module-import-check';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { httpInterceptorProviders } from './interceptors';
 
 @NgModule({
   imports: [
-  CommonModule,
-  BrowserAnimationsModule,
-  SharedModule,
-  NgMaterialModule,
-  RouterModule, // because we use <router-outlet> and routerLink
+    CommonModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    NgMaterialModule,
+    RouterModule // because we use <router-outlet> and routerLink
   ],
   declarations: [ToolbarComponent, ModalComponent],
+  providers: [httpInterceptorProviders],
   exports: [BrowserAnimationsModule, ToolbarComponent, NgMaterialModule],
-  entryComponents: [ModalComponent],
-  })
+  entryComponents: [ModalComponent]
+})
 export class CoreModule {
   constructor(
-  @Optional()
-  @SkipSelf()
-    parentModule: CoreModule,
+    @Optional()
+    @SkipSelf()
+    parentModule: CoreModule
   ) {
     throwIfAlreadyLoaded(parentModule, 'CoreModule');
   }

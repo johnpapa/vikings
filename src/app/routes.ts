@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
     path: 'home',
@@ -18,13 +17,7 @@ const routes: Routes = [
   {
     path: 'villains',
     loadChildren: () =>
-      import('./villains/villains.module').then(m => m.VillainsModule),
+      import('./villains/villains.module').then(m => m.VillainsModule)
     // data: { animation: 'VillainsPage' }
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}

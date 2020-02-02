@@ -125,5 +125,11 @@ function getDbData() {
     }
   ];
 
-  return { heroes, villains } as Db;
+  const settings: any[] = [
+    {
+      name: 'In Memory API'
+    }
+  ];
+
+  return { heroes, villains, settings } as Db;
 }
