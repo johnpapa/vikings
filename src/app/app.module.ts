@@ -19,12 +19,10 @@ import { NgMaterialModule } from './ng-material/ng-material.module';
 @NgModule({
   imports: [
     BrowserModule,
-    CommonModule,
     BrowserAnimationsModule,
-    SharedModule,
-    NgMaterialModule,
-    RouterModule, // because we use <router-outlet> and routerLink
     HttpClientModule,
+    NgMaterialModule,
+    SharedModule,
     RouterModule.forRoot(routes)
   ],
   declarations: [AppComponent, HomeComponent, ToolbarComponent, ModalComponent],
