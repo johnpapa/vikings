@@ -17,7 +17,7 @@ export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: CSRFInterceptor, multi: true },
-  // { provide: HTTP_INTERCEPTORS, useClass: TransformResponseInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: TransformResponseInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: LogResponseTimeInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: LogHeadersInterceptor, multi: true }
 ];
