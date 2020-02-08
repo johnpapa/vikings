@@ -1,4 +1,3 @@
-export * from './core.module';
 export * from './in-memory-data.service';
 export * from './interceptors';
 export * from './modal/modal.component';
