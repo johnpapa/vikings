@@ -280,3 +280,4 @@ Learn various ways to debug the node and angular app in the [DEBUGGING guide](./
 [Open an issue here](https://github.com/johnpapa/vikings/issues)
 
 Create the Docker image that you can `docker push` to a registry. This command uses `docker-compose` to build the image and run the container.
+
