@@ -27,7 +27,6 @@ import { NgMaterialModule } from './ng-material/ng-material.module';
   ],
   declarations: [AppComponent, HomeComponent, ToolbarComponent, ModalComponent],
   providers: [httpInterceptorProviders],
-  bootstrap: [AppComponent],
-  entryComponents: [ModalComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

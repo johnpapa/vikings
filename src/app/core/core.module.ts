@@ -20,7 +20,6 @@
 //   declarations: [ToolbarComponent, ModalComponent],
 //   providers: [httpInterceptorProviders],
 //   exports: [BrowserAnimationsModule, ToolbarComponent, NgMaterialModule],
-//   entryComponents: [ModalComponent]
 // })
 // export class CoreModule {
 //   constructor(
