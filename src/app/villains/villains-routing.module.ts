@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { VillainsComponent } from './villains/villains.component';
 
-const routes: Routes = [{ path: '', pathMatch: 'full', component: VillainsComponent }];
+const routes: Routes = [
+  { path: '', pathMatch: 'full', component: VillainsComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

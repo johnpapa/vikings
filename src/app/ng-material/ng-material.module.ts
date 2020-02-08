@@ -9,7 +9,7 @@ import {
   MatSlideToggleModule,
   MatSnackBarModule,
   MatToolbarModule,
-  MatTooltipModule,
+  MatTooltipModule
 } from '@angular/material';
 
 const myModules = [
@@ -22,12 +22,12 @@ const myModules = [
   MatSlideToggleModule,
   MatSnackBarModule,
   MatToolbarModule,
-  MatTooltipModule,
+  MatTooltipModule
 ];
 
 @NgModule({
   imports: [myModules],
   exports: [myModules],
-  declarations: [],
-  })
+  declarations: []
+})
 export class NgMaterialModule {}

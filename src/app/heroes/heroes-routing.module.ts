@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HeroesComponent } from './heroes/heroes.component';
 
-const routes: Routes = [{ path: '', pathMatch: 'full', component: HeroesComponent }];
+const routes: Routes = [
+  { path: '', pathMatch: 'full', component: HeroesComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -114,16 +114,22 @@ function getDbData() {
       description: 'Slayer of JavaScript'
     },
     {
-      id: 'VillainSimona',
-      name: 'Simona',
+      id: 'VillainMadelyn',
+      name: 'Madelyn',
       description: 'Wielder of the Service Worker'
     },
     {
-      id: 'VillainAsim',
-      name: 'Asim',
+      id: 'VillainLandon',
+      name: 'Landon',
       description: 'The Hacker of Node'
     }
   ];
 
-  return { heroes, villains } as Db;
+  const settings: any[] = [
+    {
+      name: 'In Memory API'
+    }
+  ];
+
+  return { heroes, villains, settings } as Db;
 }
