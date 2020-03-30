@@ -1,7 +1,7 @@
 import {
   Component, EventEmitter, Input, Output, ChangeDetectionStrategy,
 } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Hero, ModalComponent } from '../../core';
 import { flyInOutAnimation, staggerListAnimation } from '../../core/animations';
 
