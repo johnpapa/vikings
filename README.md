@@ -67,7 +67,7 @@ WWW=./
 DATA_OPTION=cloud_cosmos_sdk
 
 CORE_API_KEY=your-core-api-key-goes-here
-CORE_API_URL=https://vikings-core.documents.azure.com:443/
+CORE_API_URL=https://vikings-core.documents.azure.com/?WT.mc_id=vikings-github-jopapa
 
 USE_LIVE_DATA=yes
 MONGO_API_ACCOUNT=vikings
@@ -185,7 +185,7 @@ This contains:
     # e.g. Mongo DB in a container
     DATA_OPTION=cloud_cosmos_sdk
     CORE_API_KEY=your-key
-    CORE_API_URL=https://vikings-core.documents.azure.com:443/
+    CORE_API_URL=https://vikings-core.documents.azure.com/?WT.mc_id=vikings-github-jopapa
     ```
 
 1. CMD+SHIFT+P `docker: compose up`
@@ -265,7 +265,7 @@ Free Azure Trial - <https://aka.ms/jp-free>
    CORE_API_URL = your_cosmos_db_url;
    ```
 
-> e.g. The url should follow the format <https://yourdatabasename.documents.azure.com:443/>
+> e.g. The url should follow the format <https://yourdatabasename.documents.azure.com/?WT.mc_id=vikings-github-jopapa>
 
 ## Resetting Your Database
 
